@@ -1,127 +1,267 @@
+
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Life Media Tamil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Media Tamil</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Variable Setup */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#111;
-color:#fff;
-text-align:center;
-}
+        /* Default Dark/Modern Theme based on your screenshot */
+        body {
+            background: #121212;
+            color: #ffffff;
+        }
 
-header{
-background:#e60000;
-padding:20px;
-}
+        /* Header Style */
+        header {
+            background: #ff2a2a; /* Red Theme from screenshot */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
 
-header h1{
-margin:0;
-}
+        header h1 {
+            font-size: 36px;
+            font-weight: 700;
+        }
 
-.hero{
-padding:50px 20px;
-}
+        header p {
+            margin-top: 5px;
+            font-size: 16px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
 
-.btn{
-display:inline-block;
-background:#ff0000;
-color:white;
-padding:12px 25px;
-text-decoration:none;
-border-radius:8px;
-margin-top:20px;
-}
+        /* Navigation Styles */
+        nav {
+            margin-top: 15px;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-.card{
-background:#222;
-padding:20px;
-border-radius:10px;
-}
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-footer{
-padding:20px;
-background:#000;
-margin-top:20px;
-}
-</style>
+        /* Hero Section */
+        .hero {
+            padding: 50px 20px;
+            text-align: center;
+            background: #1a1a1a;
+            border-bottom: 2px solid #ff2a2a;
+        }
 
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #ff2a2a;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff2a2a;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 42, 42, 0.3);
+        }
+
+        .btn:hover {
+            background: #cc1f1f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: #444;
+        }
+
+        /* Main Section Container */
+        .section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff2a2a;
+            font-size: 24px;
+            position: relative;
+        }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #ff2a2a;
+            font-size: 18px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Responsive Video Container Fix */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #777;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<h1>Life Media Tamil</h1>
-<p>AI • Technology • New Inventions</p>
-</header>
+    <header>
+        <h1>Life Media Tamil</h1>
+        <p>AI • Technology • New Inventions</p>
+        
+        <nav>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#videos">Latest Videos</a>
+            <a href="#apps">Apps</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<section class="hero">
-<h2>Welcome</h2>
+    <section class="hero">
+        <h2>Welcome / வரவேற்கிறோம்!</h2>
+        <p>தமிழில் AI, புதிய கண்டுபிடிப்புகள், ஆண்ட்ராய்டு ஆப்ஸ் மற்றும் Motivation வீடியோக்கள்.</p>
+        
+        <div class="btn-container">
+            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="btn">Visit YouTube</a>
+            <a href="#apps" class="btn btn-secondary">Android App</a>
+        </div>
+    </section>
 
-<p>
-தமிழில் AI, புதிய கண்டுபிடிப்புகள், Android Apps மற்றும் Motivation.
-</p>
+    <section class="section" id="services">
+        <h2>எங்கள் சேவைகள்</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>🤖 AI Videos</h3>
+                <p>தமிழில் AI மற்றும் புதிய தொழில்நுட்ப வீடியோக்கள்.</p>
+            </div>
+            <div class="card">
+                <h3>🚀 கண்டுபிடிப்புகள்</h3>
+                <p>புதிய மெஷின் மற்றும் Startup ஐடியாக்கள்.</p>
+            </div>
+            <div class="card">
+                <h3>📱 Android Apps</h3>
+                <p>Coming Soon. Your AI Super App will appear here.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 Motivation</h3>
+                <p>வாழ்க்கையை மாற்றும் ஊக்கக் கதைகள்.</p>
+            </div>
+        </div>
+    </section>
 
-<a class="btn" href="https://www.youtube.com/@LifeMediaTamil" target="_blank">
-Visit YouTube
-</a>
+    <section class="section" id="videos">
+        <h2>Latest YouTube Videos</h2>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed?listType=user_uploads&list=lifemediatamil" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
-</section>
+    <section class="section" id="contact">
+        <h2>Contact Us</h2>
+        <p style="text-align:center; color: #ccc; line-height: 1.8;">
+            Email: <a href="mailto:contact@lifemediatamil.com" style="color: #ff2a2a; text-decoration: none;">contact@lifemediatamil.com</a><br>
+            YouTube: @lifemediatamil
+        </p>
+    </section>
 
-<div class="cards">
-
-<div class="card">
-<h3>🤖 AI Videos</h3>
-<p>தமிழில் AI வீடியோக்கள்</p>
-</div>
-
-<div class="card">
-<h3>🚀 Inventions</h3>
-<p>புதிய கண்டுபிடிப்புகள்</p>
-</div>
-
-<div class="card">
-<h3>📱 Android Apps</h3>
-<p>Coming Soon</p>
-</div>
-
-</div>
-
-<footer>
-
-© 2026 Life Media Tamil
-<section style="padding:40px;background:#1a1a1a;text-align:center;">
-<h2>🎥 Latest Videos</h2>
-
-<p>எங்கள் YouTube சேனலை பாருங்கள்</p>
-
-<a href="https://www.youtube.com/@LifeMediaTamil" target="_blank" class="btn">
-📺 Visit Life Media Tamil
-</a>
-
-<br><br>
-
-<iframe
-width="100%"
-height="400"
-src="https://www.youtube.com/embed/videoseries?list=UU"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</section>
-</footer>
+    <footer>
+        © 2026 Life Media Tamil | All Rights Reserved
+    </footer>
 
 </body>
 </html>
