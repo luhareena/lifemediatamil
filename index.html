@@ -6,83 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Media Tamil</title>
     
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Reset & Variable Setup */
+        /* CSS Reset & Global Settings */
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', Arial, sans-serif;
-            transition: background 0.3s, color 0.3s;
         }
 
-        /* Default Dark/Modern Theme based on your screenshot */
+        /* Smooth Scrolling Effect */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Light & Clean Theme Background (No more black) */
         body {
-            background: #121212;
-            color: #ffffff;
+            background: #f4f6f9;
+            color: #333333;
         }
 
-        /* Header Style */
+        /* Navigation Header (Royal Blue - No more red) */
         header {
-            background: #ff2a2a; /* Red Theme from screenshot */
+            background: #0d6efd; 
             color: white;
             padding: 20px;
             text-align: center;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         header h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
+            margin-bottom: 5px;
         }
 
         header p {
-            margin-top: 5px;
-            font-size: 16px;
+            font-size: 14px;
             opacity: 0.9;
             letter-spacing: 1px;
+            margin-bottom: 12px;
         }
 
-        /* Navigation Styles */
+        /* Navigation Links */
         nav {
-            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
             font-size: 14px;
             font-weight: 500;
+            padding: 4px 8px;
+            transition: opacity 0.2s;
         }
 
         nav a:hover {
+            opacity: 0.8;
             text-decoration: underline;
         }
 
-        /* Hero Section */
+        /* Hero Banner Section */
         .hero {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
-            background: #1a1a1a;
-            border-bottom: 2px solid #ff2a2a;
+            background: #ffffff;
+            border-bottom: 3px solid #0d6efd;
         }
 
         .hero h2 {
             font-size: 28px;
             margin-bottom: 15px;
-            color: #ff2a2a;
+            color: #0d6efd;
         }
 
         .hero p {
             font-size: 16px;
             margin-bottom: 25px;
-            color: #ccc;
+            color: #555555;
+            line-height: 1.6;
         }
 
-        /* Buttons */
+        /* Button Wrapper & Styles */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -93,7 +108,7 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: #ff2a2a;
+            background: #0d6efd;
             color: white;
             text-decoration: none;
             border-radius: 25px;
@@ -101,39 +116,40 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(255, 42, 42, 0.3);
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2);
+            transition: transform 0.2s, background 0.2s;
         }
 
         .btn:hover {
-            background: #cc1f1f;
+            background: #0b5ed7;
             transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: #333;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background: #495057;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .btn-secondary:hover {
-            background: #444;
+            background: #343a40;
         }
 
-        /* Main Section Container */
+        /* Content Section General Layout */
         .section {
-            padding: 40px 20px;
+            padding: 50px 20px;
             max-width: 900px;
             margin: auto;
+            scroll-margin-top: 140px; /* Prevents header overlap when scrolling */
         }
 
         .section h2 {
             text-align: center;
             margin-bottom: 30px;
-            color: #ff2a2a;
-            font-size: 24px;
-            position: relative;
+            color: #0d6efd;
+            font-size: 26px;
         }
 
-        /* Cards Grid */
+        /* Services Grid Layout */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -141,26 +157,27 @@
         }
 
         .card {
-            background: #1a1a1a;
+            background: #ffffff;
             padding: 25px 20px;
             border-radius: 12px;
             text-align: center;
-            border: 1px solid #333;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
 
         .card h3 {
-            margin-bottom: 10px;
-            color: #ff2a2a;
+            margin-bottom: 12px;
+            color: #0d6efd;
             font-size: 18px;
         }
 
         .card p {
-            color: #aaa;
+            color: #666666;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Responsive Video Container Fix */
+        /* Fully Responsive Video Player Wrapper */
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
@@ -168,8 +185,8 @@
             overflow: hidden;
             max-width: 100%;
             background: #000;
-            border-radius: 10px;
-            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .video-container iframe {
@@ -180,20 +197,20 @@
             height: 100%;
         }
 
-        /* Footer */
+        /* Footer Layout */
         footer {
-            background: #0a0a0a;
-            color: #777;
+            background: #212529;
+            color: #ced4da;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            margin-top: 50px;
             font-size: 14px;
-            border-top: 1px solid #222;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section with Smooth Links -->
     <header>
         <h1>Life Media Tamil</h1>
         <p>AI • Technology • New Inventions</p>
@@ -207,6 +224,7 @@
         </nav>
     </header>
 
+    <!-- Welcome Block -->
     <section class="hero">
         <h2>Welcome / வரவேற்கிறோம்!</h2>
         <p>தமிழில் AI, புதிய கண்டுபிடிப்புகள், ஆண்ட்ராய்டு ஆப்ஸ் மற்றும் Motivation வீடியோக்கள்.</p>
@@ -217,6 +235,7 @@
         </div>
     </section>
 
+    <!-- Services Grid Block -->
     <section class="section" id="services">
         <h2>எங்கள் சேவைகள்</h2>
         <div class="cards">
@@ -225,8 +244,8 @@
                 <p>தமிழில் AI மற்றும் புதிய தொழில்நுட்ப வீடியோக்கள்.</p>
             </div>
             <div class="card">
-                <h3>🚀 கண்டுபிடிப்புகள்</h3>
-                <p>புதிய மெஷின் மற்றும் Startup ஐடியாக்கள்.</p>
+                <h3>🚀 Inventions</h3>
+                <p>புமைய மெஷின் மற்றும் Startup ஐடியாக்கள்.</p>
             </div>
             <div class="card">
                 <h3>📱 Android Apps</h3>
@@ -239,11 +258,13 @@
         </div>
     </section>
 
+    <!-- YouTube Video Block -->
     <section class="section" id="videos">
         <h2>Latest YouTube Videos</h2>
         <div class="video-container">
+            <!-- உங்களின் உண்மையான வீடியோ வெற்றிகரமாக இணைக்கப்பட்டுள்ளது -->
             <iframe 
-                src="https://www.youtube.com/embed?listType=user_uploads&list=lifemediatamil" 
+                src="https://www.youtube.com/embed/YrxXUztr61I" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
@@ -251,14 +272,16 @@
         </div>
     </section>
 
+    <!-- Contact Block -->
     <section class="section" id="contact">
         <h2>Contact Us</h2>
-        <p style="text-align:center; color: #ccc; line-height: 1.8;">
-            Email: <a href="mailto:contact@lifemediatamil.com" style="color: #ff2a2a; text-decoration: none;">contact@lifemediatamil.com</a><br>
-            YouTube: @lifemediatamil
+        <p style="text-align:center; color: #555555; line-height: 2; font-size: 16px;">
+            Email: <a href="mailto:contact@lifemediatamil.com" style="color: #0d6efd; text-decoration: none; font-weight: bold;">contact@lifemediatamil.com</a><br>
+            YouTube: <a href="https://youtube.com/@lifemediatamil" target="_blank" style="color: #0d6efd; text-decoration: none; font-weight: bold;">@lifemediatamil</a>
         </p>
     </section>
 
+    <!-- Footer -->
     <footer>
         © 2026 Life Media Tamil | All Rights Reserved
     </footer>
