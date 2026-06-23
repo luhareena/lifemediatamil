@@ -1,292 +1,44 @@
-<!DOCTYPE html>
+<!-- CHAT BUTTON -->
+<button class="chat-btn" onclick="toggleChat()">💬</button>
+
+<!-- CHAT BOX -->
+<div class="chat-box" id="chatBox">
+
+    <div class="chat-header">
+        🤖 Life Media AI
+        <span onclick="toggleChat()" class="close">✖</span>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+        <p class="bot">👋 வணக்கம்! நான் உங்கள் AI Assistant.</p>
+        <p class="bot">என்ன help வேண்டும்?</p>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type message...">
+        <button onclick="sendMsg()">Send</button>
+    </div>
+
+</div>
+    <!DOCTYPE html>
 <html lang="ta">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Media Tamil</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* CSS Reset & Global Settings */
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', Arial, sans-serif;
-        }
 
-        /* Smooth Scrolling Effect */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Light & Clean Theme Background (No more black) */
-        body {
-            background: #f4f6f9;
-            color: #333333;
-        }
-
-        /* Navigation Header (Royal Blue - No more red) */
-        header {
-            background: #0d6efd; 
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-size: 14px;
-            opacity: 0.9;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        /* Navigation Links */
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 4px 8px;
-            transition: opacity 0.2s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        /* Hero Banner Section */
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: #ffffff;
-            border-bottom: 3px solid #0d6efd;
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #0d6efd;
-        }
-
-        .hero p {
-            font-size: 16px;
-            margin-bottom: 25px;
-            color: #555555;
-            line-height: 1.6;
-        }
-
-        /* Button Wrapper & Styles */
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #0d6efd;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2);
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .btn:hover {
-            background: #0b5ed7;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: #495057;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: #343a40;
-        }
-
-        /* Content Section General Layout */
-        .section {
-            padding: 50px 20px;
-            max-width: 900px;
-            margin: auto;
-            scroll-margin-top: 140px; /* Prevents header overlap when scrolling */
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #0d6efd;
-            font-size: 26px;
-        }
-
-        /* Services Grid Layout */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #ffffff;
-            padding: 25px 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            color: #0d6efd;
-            font-size: 18px;
-        }
-
-        .card p {
-            color: #666666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Fully Responsive Video Player Wrapper */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Footer Layout */
-        footer {
-            background: #212529;
-            color: #ced4da;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header Section with Smooth Links -->
-    <header>
-        <h1>Life Media Tamil</h1>
-        <p>AI • Technology • New Inventions</p>
-        
-        <nav>
-            <a href="#">Home</a>
-            <a href="#services">Services</a>
-            <a href="#videos">Latest Videos</a>
-            <a href="#apps">Apps</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <!-- Welcome Block -->
-    <section class="hero">
-        <h2>Welcome / வரவேற்கிறோம்!</h2>
-        <p>தமிழில் AI, புதிய கண்டுபிடிப்புகள், ஆண்ட்ராய்டு ஆப்ஸ் மற்றும் Motivation வீடியோக்கள்.</p>
-        
-        <div class="btn-container">
-            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="btn">Visit YouTube</a>
-            <a href="#apps" class="btn btn-secondary">Android App</a>
-        </div>
-    </section>
-
-    <!-- Services Grid Block -->
-    <section class="section" id="services">
-        <h2>எங்கள் சேவைகள்</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>🤖 AI Videos</h3>
-                <p>தமிழில் AI மற்றும் புதிய தொழில்நுட்ப வீடியோக்கள்.</p>
-            </div>
-            <div class="card">
-                <h3>🚀 Inventions</h3>
-                <p>புமைய மெஷின் மற்றும் Startup ஐடியாக்கள்.</p>
-            </div>
-            <div class="card">
-                <h3>📱 Android Apps</h3>
-                <p>Coming Soon. Your AI Super App will appear here.</p>
-            </div>
-            <div class="card">
-                <h3>🎯 Motivation</h3>
-                <p>வாழ்க்கையை மாற்றும் ஊக்கக் கதைகள்.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- YouTube Video Block -->
-    <section class="section" id="videos">
-        <h2>Latest YouTube Videos</h2>
-        <div class="video-container">
-            <!-- உங்களின் உண்மையான வீடியோ வெற்றிகரமாக இணைக்கப்பட்டுள்ளது -->
-            <iframe 
-                src="https://www.youtube.com/embed/YrxXUztr61I" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    </section><!DOCTYPE html>
-<html lang="ta">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Life Media Tamil | AI • Tech • Inventions</title>
-    <meta name="description" content="தமிழில் AI, புதிய கண்டுபிடிப்புகள், Android Apps மற்றும் Motivation வீடியோக்கள். Life Media Tamil Official Website">
-    
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER WILL COME NEXT -->
+
+<h1>Life Media Tamil Website Ready 🚀</h1>
+
+<script src="script.js"></script>
+</body>
+</html>
 <header>
     <div class="logo">🚀 Life Media Tamil</div>
 
@@ -294,77 +46,69 @@
         <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#videos">Videos</a>
-        <a href="#apps">Apps</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </header>
-
-<!-- HERO -->
 <section class="hero">
-    <h1>Welcome to Life Media Tamil</h1>
+    <h2>Welcome to Life Media Tamil</h2>
     <p>AI • Technology • Inventions • Motivation</p>
 
-    <div class="btn-group">
-        <a class="btn" href="https://youtube.com/@lifemediatamil" target="_blank">YouTube</a>
-        <a class="btn dark" href="#apps">Android App</a>
-    </div>
+    <a class="btn" href="https://youtube.com/@lifemediatamil" target="_blank">
+        Visit YouTube
+    </a>
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="section">
+
     <h2>எங்கள் சேவைகள்</h2>
 
     <div class="grid">
-        <div class="card">🤖 AI Videos<br><span>தமிழில் AI தொழில்நுட்பம்</span></div>
-        <div class="card">🚀 Inventions<br><span>புதிய மெஷின் & Startup Ideas</span></div>
-        <div class="card">📱 Apps<br><span>AI Super App Coming Soon</span></div>
-        <div class="card">🎯 Motivation<br><span>வாழ்க்கை மாற்றும் கதைகள்</span></div>
+        <div class="card">🤖 AI Videos</div>
+        <div class="card">🚀 Inventions</div>
+        <div class="card">📱 Android Apps</div>
+        <div class="card">🎯 Motivation</div>
     </div>
+
 </section>
 
-<!-- VIDEO -->
 <section id="videos" class="section">
+
     <h2>Latest Video</h2>
 
-    <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen></iframe>
-    </div>
+    <iframe 
+        width="100%" 
+        height="300"
+        src="https://www.youtube.com/embed/YrxXUztr61I"
+        allowfullscreen>
+    </iframe>
+
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section">
+
     <h2>Contact</h2>
 
-    <p class="contact">
-        📧 contact@lifemediatamil.com <br>
-        ▶ YouTube: @lifemediatamil
+    <p>
+        Email: contact@lifemediatamil.com <br>
+        YouTube: @lifemediatamil
     </p>
 
-    <!-- WhatsApp Button -->
-    <a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">
-        💬 WhatsApp
-    </a>
 </section>
 
 <footer>
     © 2026 Life Media Tamil
 </footer>
-
-<script src="script.js"></script>
-</body>
-</html>
-    *{
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:Poppins,sans-serif;
 }
 
 body{
     background:#f5f7fb;
-    color:#222;
 }
 
 /* HEADER */
@@ -372,15 +116,11 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 20px;
+    padding:15px;
     background:#0d6efd;
     color:white;
     position:sticky;
     top:0;
-}
-
-.logo{
-    font-weight:bold;
 }
 
 nav a{
@@ -389,85 +129,45 @@ nav a{
     text-decoration:none;
 }
 
-/* MOBILE MENU */
 .menu-btn{
     display:none;
-    background:none;
-    border:none;
-    font-size:25px;
-    color:white;
 }
 
 /* HERO */
 .hero{
     text-align:center;
-    padding:80px 20px;
+    padding:60px 20px;
     background:white;
 }
 
-.hero h1{
-    font-size:32px;
-    color:#0d6efd;
-}
-
-.btn-group{
-    margin-top:20px;
-}
-
 .btn{
+    display:inline-block;
+    margin-top:15px;
     padding:10px 20px;
     background:#0d6efd;
     color:white;
     border-radius:25px;
     text-decoration:none;
-    margin:5px;
 }
 
-.btn.dark{
-    background:#333;
-}
-
-/* SECTION */
+/* SECTIONS */
 .section{
-    padding:60px 20px;
+    padding:50px 20px;
     text-align:center;
 }
 
+/* GRID */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
     gap:15px;
-    margin-top:20px;
 }
 
 .card{
     background:white;
     padding:20px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* VIDEO */
-.video-box{
-    max-width:700px;
-    margin:auto;
-}
-
-iframe{
-    width:100%;
-    height:400px;
-    border-radius:12px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-    display:inline-block;
-    margin-top:15px;
-    background:green;
-    color:white;
-    padding:10px 20px;
-    border-radius:25px;
-    text-decoration:none;
+    border-radius:10px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
 
 /* FOOTER */
@@ -485,10 +185,9 @@ footer{
         flex-direction:column;
         background:#0d6efd;
         position:absolute;
-        top:60px;
         right:0;
-        width:200px;
-        padding:10px;
+        top:60px;
+        width:150px;
     }
 
     nav.show{
@@ -497,10 +196,256 @@ footer{
 
     .menu-btn{
         display:block;
-    function toggleMenu(){
+        color:white;
+        background:none;
+        border:none;
+        font-size:25px;
+    }
+}
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("show");
+
+}<header>
+    <div class="logo">🚀 Life Media Tamil</div>
+
+    <nav id="navMenu">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+        <button class="dark-btn" onclick="toggleDark()">🌙</button>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+</header>
+
+<section class="hero">
+    <h1 class="fade-in">Welcome to Life Media Tamil</h1>
+
+    <p class="slide-up">
+        AI • Technology • Inventions • Motivation
+    </p>
+
+    <a class="btn glow" href="https://youtube.com/@lifemediatamil" target="_blank">
+        ▶ Visit YouTube
+    </a>
+</section>
+
+body{
+    background:#f5f7fb;
+    transition:0.3s;
+}
+
+/* DARK MODE */
+body.dark{
+    background:#0f172a;
+    color:white;
+}
+
+body.dark .card,
+body.dark .hero{
+    background:#1e293b;
+    color:white;
+}
+
+/* HEADER */
+.header-actions{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.dark-btn{
+    background:white;
+    border:none;
+    padding:6px 10px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+/* ANIMATION */
+.fade-in{
+    animation:fadeIn 1s ease-in;
+}
+
+.slide-up{
+    animation:slideUp 1s ease-in;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes slideUp{
+    from{transform:translateY(20px); opacity:0;}
+    to{transform:translateY(0); opacity:1;}
+}
+
+/* GLOW BUTTON */
+.glow{
+    box-shadow:0 0 10px #0d6efd;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{box-shadow:0 0 5px #0d6efd;}
+    to{box-shadow:0 0 20px #0d6efd;}
+}
+function toggleMenu(){
     document.getElementById("navMenu").classList.toggle("show");
 }
+
+/* DARK MODE */
+function toggleDark(){
+    document.body.classList.toggle("dark");
+
+    // save mode
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("mode","dark");
+    } else {
+        localStorage.setItem("mode","light");
     }
 }
 
-    
+/* LOAD MODE */
+window.onload = function(){
+    if(localStorage.getItem("mode") === "dark"){
+        document.body.classList.add("dark");
+    }
+};
+/* CHAT BUTTON */
+.chat-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:50%;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* CHAT BOX */
+.chat-box{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:280px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    display:none;
+    overflow:hidden;
+}
+
+/* HEADER */
+.chat-header{
+    background:#0d6efd;
+    color:white;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* BODY */
+.chat-body{
+    height:250px;
+    overflow-y:auto;
+    padding:10px;
+    font-size:14px;
+}
+
+/* INPUT */
+.chat-input{
+    display:flex;
+}
+
+.chat-input input{
+    flex:1;
+    padding:8px;
+    border:none;
+    outline:none;
+}
+
+.chat-input button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:8px 12px;
+}
+
+/* MESSAGES */
+.bot{
+    background:#e9ecef;
+    padding:6px 10px;
+    border-radius:10px;
+    margin:5px 0;
+}
+
+.user{
+    background:#0d6efd;
+    color:white;
+    padding:6px 10px;
+    border-radius:10px;
+    margin:5px 0;
+    text-align:right;
+}
+
+function toggleChat(){
+    let box = document.getElementById("chatBox");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+
+function sendMsg(){
+    let input = document.getElementById("userInput");
+    let msg = input.value;
+    if(msg.trim() === "") return;
+
+    let chat = document.getElementById("chatBody");
+
+    // USER MESSAGE
+    let userMsg = document.createElement("p");
+    userMsg.className = "user";
+    userMsg.innerText = msg;
+    chat.appendChild(userMsg);
+
+    // BOT RESPONSE (SIMPLE AI)
+    let botMsg = document.createElement("p");
+    botMsg.className = "bot";
+
+    let reply = getAIReply(msg);
+    botMsg.innerText = reply;
+
+    chat.appendChild(botMsg);
+
+    input.value = "";
+    chat.scrollTop = chat.scrollHeight;
+}
+
+/* SIMPLE AI LOGIC */
+function getAIReply(msg){
+    msg = msg.toLowerCase();
+
+    if(msg.includes("hello") || msg.includes("hi")){
+        return "👋 வணக்கம்! எப்படி உதவலாம்?";
+    }
+    else if(msg.includes("youtube")){
+        return "▶ எங்கள் YouTube: Life Media Tamil";
+    }
+    else if(msg.includes("app")){
+        return "📱 Android App விரைவில் வருகிறது!";
+    }
+    else if(msg.includes("ai")){
+        return "🤖 நான் AI chatbot! உங்களுக்கு help செய்கிறேன்.";
+    }
+    else{
+        return "🙂 இதைப் பற்றி நான் இன்னும் கற்றுக்கொள்கிறேன்!";
+    }
+}
+
