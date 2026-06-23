@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Media Tamil</title>
+    <title>Life Media Tamil | Ultimate Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,11 +14,9 @@
 
     <nav id="navMenu">
         <a href="#">Home</a>
-        <a href="#students">Students</a>
-        <a href="#kids">Kids</a>
-        <a href="#adults">Adults</a>
-        <a href="https://niyascomputers.blogspot.com" target="_blank">Blog</a>
-        <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank">App</a>
+        <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank">📱 Niyas Tamil Companion App</a>
+        <a href="https://niyascomputers.blogspot.com" target="_blank">💻 Niyas Computers Blog</a>
+        <a href="https://youtube.com/@lifemediatamil" target="_blank">▶ @lifemediatamil</a>
     </nav>
 
     <div class="header-actions">
@@ -31,12 +29,10 @@
     <h1>Welcome to Life Media Tamil</h1>
     <p>AI • Technology • Inventions • Motivation</p>
     
-    <div class="search-container">
-        <input type="text" id="siteSearch" onkeyup="searchWebsite()" placeholder="இங்கே தேடுங்கள்... (உபா: கதைகள், TNPSC, AI, ஆப்)">
-        <span class="search-icon">🔍</span>
+    <div class="mega-search-container">
+        <input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள் அல்லது வெப்சைட் லிங்க் (உதா: www.google.com) டைப் செய்து என்டர் செய்யவும்...">
+        <button onclick="handleMegaSearch()" class="search-btn-3d">தேடு 🔍</button>
     </div>
-
-    <a class="btn btn-3d btn-blue" href="https://youtube.com/@lifemediatamil" target="_blank" style="max-width: 250px; margin: 20px auto 0 auto;">▶ Visit YouTube</a>
 </section>
 
 <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 20px; text-align: center;">
@@ -44,10 +40,18 @@
     <section id="services" class="section search-item">
         <h2 class="section-title">✨ எங்கள் சேவைகள் (Our Services)</h2>
         <div class="grid">
-            <div class="card">🤖 <br><br><strong>AI Videos</strong></div>
-            <div class="card">🚀 <br><br><strong>Inventions</strong></div>
-            <div class="card">📱 <br><br><strong>Android Apps</strong></div>
-            <div class="card">🎯 <br><br><strong>Motivation</strong></div>
+            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
+                <div class="card">🤖 <br><br><strong>AI Videos</strong></div>
+            </a>
+            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
+                <div class="card">🚀 <br><br><strong>Inventions</strong></div>
+            </a>
+            <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="card-link">
+                <div class="card">📱 <br><br><strong>Android Apps</strong></div>
+            </a>
+            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
+                <div class="card">🎯 <br><br><strong>Motivation</strong></div>
+            </a>
         </div>
     </section>
 
@@ -71,14 +75,14 @@
         <div id="exam-content" class="content-box" style="border-left-color: #2980b9;">
             <h4>📋 போட்டித் தேர்வு வழிகாட்டி:</h4>
             <ul>
-                <li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள் குறித்த விபரங்கள்.</li>
-                <li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய டிப்ஸ் மற்றும் வழிகாட்டுதல்கள்.</li>
+                <li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
+                <li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகாட்டுதல்கள்.</li>
             </ul>
         </div>
         <div id="quiz-content" class="content-box" style="border-left-color: #2980b9;">
             <h4>🧠 பொது அறிவு வினாடி-வினா:</h4>
             <ul>
-                <li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பدید: புது டெல்லி)</li>
+                <li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</li>
                 <li><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? (பதில்: பனை மரம்)</li>
             </ul>
         </div>
@@ -91,13 +95,13 @@
                 <div class="icon-3d">🐯</div>
                 <h3>நீதிக்கதைகள் & பஞ்சதந்திர கதைகள்</h3>
                 <p>குழந்தைகளின் நற்பண்புகளை வளர்க்கும் அழகிய தமிழ் நீதிக்கதைகள்.</p>
-                <button onclick="toggleContent('story-content')" class="btn btn-3d btn-green">கதைகள் படி</button>
+                <button onclick="toggleContent('story-content')" class="btn btn-3d btn-green">KIDS STORIES</button>
             </div>
             <div class="card-box" style="--card-color: #27ae60;">
                 <div class="icon-3d">🅰️</div>
                 <h3>அடிப்படைத் தமிழ் & ஆங்கிலம்</h3>
                 <p>குழந்தைகள் எளிதாகப் பழகும் வகையில் தமிழ் உயிர் எழுத்துக்கள்.</p>
-                <button onclick="toggleContent('kids-learn')" class="btn btn-3d btn-green">விளையாடிப் படி</button>
+                <button onclick="toggleContent('kids-learn')" class="btn btn-3d btn-green">LEARN TAMIL</button>
             </div>
         </div>
 
@@ -106,7 +110,7 @@
             <p>ஒரு அடர்ந்த காட்டில் ஒரு பெரிய சிங்கம் தூங்கிக் கொண்டிருந்தது. அப்போது அங்கு வந்த ஒரு சிறிய சுட்டி எலி, சிங்கத்தின் உடலின் மீது ஏறி விளையாடியது...</p>
             <br>
             <h4>📖 ஆமையும் முயலும்:</h4>
-            <p>விடாமுயற்சியால் ஆமை மெதுவாக நடந்து பந்தயத்தில் வென்றது. <br><strong>நீதி:</strong> நிதானமும் விடாமுயற்சியும் எப்போதும் வெற்றியைத் தரும்.</p>
+            <p>முயல் தன் வேகத்தைக் கண்டு தற்பெருமை கொண்டு தூங்கியது, ஆனால் விடாமுயற்சியால் ஆமை பந்தயத்தில் வென்றது. <br><strong>நீதி:</strong> நிதானமும் விடாமுயற்சியும் எப்போதும் வெற்றியைத் தரும்.</p>
         </div>
         <div id="kids-learn" class="content-box" style="border-left-color: #27ae60;">
             <h4>🍎 தமிழ் உயிர் எழுத்துக்கள் (12):</h4>
@@ -127,7 +131,7 @@
                 <div class="icon-3d">📰</div>
                 <h3>பயனுள்ள கட்டுரைகள்</h3>
                 <p>வலைப்பதிவுகள் மற்றும் புதிய ஆன்லைன் டிஜிட்டல் வேலை வாய்ப்புகள்.</p>
-                <a href="https://niyascomputers.blogspot.com" target="_blank" class="btn btn-3d btn-orange" style="text-decoration:none;">Visit Blog</a>
+                <a href="https://niyascomputers.blogspot.com" target="_blank" class="btn btn-3d btn-orange" style="text-decoration:none;">VISIT BLOG</a>
             </div>
         </div>
 
@@ -171,11 +175,16 @@
 
 <script src="script.js"></script>
 <script>
-    // லைவ் சர்ச் செய்வதற்கான ஜாவாஸ்கிரிப்ட் வசதி
+    // லைவ் கீவேர்டு சர்ச் வசதி
     function searchWebsite() {
-        let input = document.getElementById('siteSearch').value.toLowerCase();
-        let items = document.getElementsByClassName('search-item');
+        let input = document.getElementById('siteSearch').value.toLowerCase().trim();
         
+        // வெப்சைட் லிங்க் ஆக இருந்தால் கீவேர்டு சர்ச்சைத் தவிர்க்கவும்
+        if (input.includes('www.') || input.includes('.com') || input.includes('.in') || input.includes('http')) {
+            return; 
+        }
+
+        let items = document.getElementsByClassName('search-item');
         for (let i = 0; i < items.length; i++) {
             let text = items[i].innerText.toLowerCase();
             if (text.includes(input)) {
@@ -185,8 +194,33 @@
             }
         }
     }
+
+    // என்டர் கீ தட்டினால் வெப்சைட் ரீடைரெக்ட் ஆகும் வசதி
+    function checkSearchEnter(event) {
+        if (event.key === "Enter") {
+            handleMegaSearch();
+        }
+    }
+
+    // கூகுள் போன்று நேரடியாக வெப்சைட்டிற்கு அழைத்துச் செல்லும் வசதி
+    function handleMegaSearch() {
+        let query = document.getElementById('siteSearch').value.trim();
+        if (query === "") return;
+
+        // வெப்சைட் லிங்க் தானா என்று சரிபார்த்தல்
+        if (query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
+            let url = query;
+            if (!/^https?:\/\//i.test(url)) {
+                url = 'https://' + url;
+            }
+            window.open(url, '_blank'); // புதிய டேபில் அந்த வெப்சைட் ஓப்பன் ஆகும்
+        } else {
+            // வெப்சைட் லிங்க் இல்லை என்றால் நேரடியாக கூகுளில் தேடும் வசதி
+            window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+        }
+    }
     
-    // அக்கார்டியன் கன்டென்ட் பாக்ஸ் வசதி
+    // அக்கார்டியன் பாக்ஸ் ஓப்பன் செய்யும் வசதி
     function toggleContent(id) {
         var x = document.getElementById(id);
         if (x.style.display === "block") {
