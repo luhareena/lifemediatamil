@@ -1,1 +1,14 @@
+lifemediatamil/
+│── index.html
+│── about.html
+│── videos.html
+│── apps.html
+│── contact.html
+│── blog.html
+│── style.css
+│── script.js
+│── assets/
+│   ├── images/
+│   ├── icons/
+│   └── logo.png
 
