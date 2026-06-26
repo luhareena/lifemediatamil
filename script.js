@@ -104,3 +104,28 @@ window.addEventListener("load", () => {
         }, 1200);
     }
 });
+// =====================
+// Voice Search
+// =====================
+
+function startVoice() {
+
+    if (!('webkitSpeechRecognition' in window)) {
+        alert("Voice Search is not supported in this browser.");
+        return;
+    }
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "ta-IN";
+    recognition.start();
+
+    recognition.onresult = function(event) {
+
+        const text = event.results[0][0].transcript;
+
+        document.getElementById("siteSearch").value = text;
+
+        handleMegaSearch();
+    };
+}
