@@ -129,3 +129,15 @@ function startVoice() {
         handleMegaSearch();
     };
 }
+// ==========================
+// Live Date & Time
+// ==========================
+
+setInterval(() => {
+
+    const now = new Date();
+
+    document.getElementById("liveClock").innerHTML =
+        now.toLocaleString();
+
+}, 1000);
