@@ -455,3 +455,23 @@ width:250px;
 padding:10px 15px;
 cursor:pointer;
 }
+/* Live Clock */
+.clock{
+position:fixed;
+top:15px;
+right:20px;
+background:#222;
+color:#fff;
+padding:8px 15px;
+border-radius:10px;
+font-size:15px;
+z-index:999;
+}
+
+/* Google Translate */
+#google_translate_element{
+position:fixed;
+top:60px;
+right:20px;
+z-index:999;
+}
