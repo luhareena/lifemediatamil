@@ -1,126 +1,116 @@
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Life Media Tamil | AI • Technology • Education • Inventions</title>
+<title>Life Media Tamil | AI • Technology • Education</title>
 
-<meta name="description" content="Life Media Tamil - AI, Technology, Students, Kids Learning, Motivation, Android Apps, Computer Tips and Latest Innovations.">
-
-<meta name="keywords" content="Life Media Tamil, AI Tamil, Technology, Android Apps, Students, Kids, Motivation">
-
+<meta name="description" content="Life Media Tamil - AI, Technology, Education, Students, Kids, Motivation">
+<meta name="keywords" content="AI Tamil, Technology, Students, Kids">
 <meta name="author" content="Mohamed Niyas">
 
-<meta name="theme-color" content="#000000">
-
-<meta property="og:title" content="Life Media Tamil">
-
-<meta property="og:description" content="AI | Technology | Education | Motivation">
-
-<meta property="og:type" content="website">
-
-<meta property="og:image" content="logo.png">
-
-<meta property="og:url" content="https://niyasreena-create.github.io/">
-
-<link rel="icon" href="logo.png">
+<meta name="theme-color" content="#0d6efd">
 
 <link rel="manifest" href="manifest.json">
+<link rel="icon" href="logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link
-rel="stylesheet"
+<link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 
-</head><!-- Loading Screen -->
+</head>
+
+<body>
+
+<!-- Loading -->
 
 <div id="loader">
-
-<div class="loader-logo">
-🚀
-</div>
-
+<div class="loader-logo">🚀</div>
 <h2>Life Media Tamil</h2>
-
 <p>Loading...</p>
-
 </div>
 
-<!-- Background Animation -->
+<!-- Background -->
 
 <div class="bg-animation">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div><!-- ================= HEADER ================= -->
+<!-- Header -->
 
 <header class="header">
 
-    <div class="logo">
-        🚀 <span>Life Media Tamil</span>
-    </div>
+<div class="logo">
+🚀 Life Media Tamil
+</div>
 
-    <nav id="navMenu">
+<nav id="navMenu">
 
-        <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+<a href="#home">
+<i class="fa-solid fa-house"></i>
+Home
+</a>
 
-        <a href="#services"><i class="fa-solid fa-robot"></i> AI</a>
+<a href="#dashboard">
+Dashboard
+</a>
 
-        <a href="#students"><i class="fa-solid fa-graduation-cap"></i> Students</a>
+<a href="#ai">
+AI
+</a>
 
-        <a href="#kids"><i class="fa-solid fa-child"></i> Kids</a>
+<a href="#students">
+Students
+</a>
 
-        <a href="#adults"><i class="fa-solid fa-laptop"></i> Technology</a>
+<a href="#technology">
+Technology
+</a>
 
-        <a href="#videos"><i class="fa-brands fa-youtube"></i> Videos</a>
+<a href="#contact">
+Contact
+</a>
 
-    </nav>
+</nav>
 
-    <div class="header-buttons">
+<div class="header-buttons">
 
-        <button onclick="toggleDark()" class="icon-btn">
-            🌙
-        </button>
+<button class="icon-btn" onclick="toggleDark()">
+🌙
+</button>
 
-        <button onclick="toggleMenu()" class="icon-btn">
-            ☰
-        </button>
+<button class="icon-btn" onclick="toggleMenu()">
+☰
+</button>
 
-    </div>
+</div>
 
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- Hero -->
 
 <section class="hero" id="home">
 
 <div class="hero-content">
 
 <h1>
-
-🔥 Welcome To
-
+Welcome To
 <span>Life Media Tamil</span>
-
 </h1>
 
 <p>
-
-AI • Technology • Education • Motivation • Inventions
-
+AI • Technology • Education • Motivation
 </p>
 
 <div class="hero-search">
@@ -128,33 +118,15 @@ AI • Technology • Education • Motivation • Inventions
 <input
 type="text"
 id="siteSearch"
-placeholder="🔍 Search anything or type website name...">
+placeholder="Search Website">
 
 <button onclick="handleMegaSearch()">
-
 Search
-
 </button>
 
-</div>
-
-<div class="hero-buttons">
-
-<a href="https://youtube.com/@lifemediatamil"
-target="_blank"
-class="gold-btn">
-
-▶ YouTube
-
-</a>
-
-<a href="https://niyascomputers.blogspot.com"
-target="_blank"
-class="glass-btn">
-
-💻 Blog
-
-</a>
+<button onclick="startVoice()">
+🎤
+</button>
 
 </div>
 
@@ -162,100 +134,102 @@ class="glass-btn">
 
 </section>
 
-<!-- ================= QUICK SERVICES ================= -->
+<!-- Dashboard -->
 
-<section class="quick-services">
+<section class="dashboard" id="dashboard">
 
-<div class="service-card">
+<div class="card">
+🌦️
+<h3>Weather</h3>
+<p id="weatherData">Loading...</p>
+</div>
 
+<div class="card">
+📰
+<h3>Latest News</h3>
+<p>Daily Tamil News</p>
+</div>
+
+<div class="card">
+💰
+<h3>Gold Price</h3>
+<p>Today's Gold Rate</p>
+</div>
+
+<div class="card">
+📈
+<h3>Forex</h3>
+<p>Live Currency</p>
+</div>
+
+<div class="card">
 🤖
-
 <h3>AI Tools</h3>
-
-<p>Latest AI Tools & Prompts</p>
-
+<p>Best AI Websites</p>
 </div>
 
-<div class="service-card">
-
-📚
-
-<h3>Students</h3>
-
-<p>TNPSC | UPSC | GK</p>
-
+<div class="card">
+🎥
+<h3>YouTube</h3>
+<p>Life Media Tamil</p>
 </div>
 
-<div class="service-card">
-
-👶
-
-<h3>Kids</h3>
-
-<p>Stories & Learning</p>
-
-</div>
-
-<div class="service-card">
-
-💻
-
-<h3>Technology</h3>
-
-<p>Computer & Mobile Tips</p>
-
-</div>
-
-</section><!-- ================= AI CHAT ================= -->
+</section>
+<!-- AI Chat -->
 
 <button class="chat-btn" onclick="toggleChat()">
-    💬
+💬
 </button>
 
 <div class="chat-box" id="chatBox">
 
-    <div class="chat-header">
+<div class="chat-header">
+🤖 Life Media AI
+<span onclick="toggleChat()">✖</span>
+</div>
 
-        🤖 Life Media AI
+<div class="chat-body" id="chatBody">
 
-        <span onclick="toggleChat()">✖</span>
-
-    </div>
-
-    <div class="chat-body" id="chatBody">
-
-        <div class="bot">
-            👋 வணக்கம்! Life Media Tamil-க்கு வரவேற்கிறோம்.
-        </div>
-
-    </div>
-
-    <div class="chat-input">
-
-        <input
-        type="text"
-        id="userInput"
-        placeholder="உங்கள் கேள்வியை எழுதுங்கள்...">
-
-        <button onclick="sendMsg()">
-            Send
-        </button>
-
-    </div>
+<div class="bot">
+👋 வணக்கம்! Life Media Tamil-க்கு வரவேற்கிறோம்.
+</div>
 
 </div>
 
-<!-- ================= WHATSAPP ================= -->
+<div class="chat-input">
 
-<a href="https://wa.me/"
-class="whatsapp-btn"
-target="_blank">
+<input
+type="text"
+id="userInput"
+placeholder="உங்கள் கேள்வியை எழுதுங்கள்...">
+
+<button onclick="sendMsg()">
+Send
+</button>
+
+</div>
+
+</div>
+
+<!-- Live Clock -->
+
+<div id="liveClock" class="clock"></div>
+
+<!-- Google Translate -->
+
+<div id="google_translate_element"></div>
+
+<!-- WhatsApp -->
+
+<a href="https://wa.me/91YOURNUMBER"
+target="_blank"
+class="whatsapp-btn">
 
 <i class="fab fa-whatsapp"></i>
 
 </a>
 
-<!-- ================= SCROLL TOP ================= -->
+<!-- Scroll Top -->
 
 <button
 id="topBtn"
@@ -265,60 +239,65 @@ onclick="scrollTopPage()">
 
 </button>
 
-<!-- ================= FOOTER ================= -->
+<!-- Footer -->
 
-<footer>
+<footer id="contact">
 
 <div class="footer-container">
 
 <h2>🚀 Life Media Tamil</h2>
 
 <p>
-
-AI • Technology • Education • Motivation • Inventions
-
+AI • Technology • Education • Motivation
 </p>
 
 <div class="footer-links">
 
 <a href="https://youtube.com/@lifemediatamil">
-
 YouTube
-
 </a>
 
 <a href="https://niyascomputers.blogspot.com">
-
 Blog
-
 </a>
 
 <a href="#">
-
-Privacy
-
+Privacy Policy
 </a>
 
 <a href="#">
-
 Contact
-
 </a>
 
 </div>
 
 <p>
-
 © 2026 Life Media Tamil
-
 </p>
 
 </div>
 
 </footer>
 
+<!-- Google Translate Script -->
+
+<script>
+function googleTranslateElementInit() {
+new google.translate.TranslateElement(
+{
+pageLanguage:'ta'
+},
+'google_translate_element'
+);
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Main JS -->
+
 <script src="script.js"></script>
 
 </body>
-
 </html>
+    
