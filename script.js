@@ -1,20 +1,45 @@
-document.getElementById("refreshBtn").addEventListener("click", () => {
+const news = [
+{
+title: "Life Media Tamil-க்கு வரவேற்கிறோம்",
+content: "தமிழ் செய்திகள், முக்கிய நிகழ்வுகள் மற்றும் புதிய அப்டேட்கள் இங்கே கிடைக்கும்.",
+image: "https://picsum.photos/600/300?1"
+},
+{
+title: "இன்று முக்கிய செய்திகள்",
+content: "உலகம், இந்தியா மற்றும் தமிழ்நாட்டின் முக்கிய செய்திகள் தொடர்ந்து புதுப்பிக்கப்படும்.",
+image: "https://picsum.photos/600/300?2"
+},
+{
+title: "YouTube சேனலை Subscribe செய்யுங்கள்",
+content: "Life Media Tamil YouTube சேனலில் புதிய வீடியோக்களை தொடர்ந்து பாருங்கள்.",
+image: "https://picsum.photos/600/300?3"
+}
+];
 
-document.getElementById("news").innerHTML=`
-<h2>Latest Update</h2>
-<p>${new Date().toLocaleString()}</p>
+function loadNews() {
+const newsDiv = document.getElementById("news");
+newsDiv.innerHTML = "";
+
+news.forEach(item => {
+newsDiv.innerHTML += `
+<div class="card">
+<img src="${item.image}" alt="">
+<h3>${item.title}</h3>
+<p>${item.content}</p>
+</div>
 `;
-
 });
 
-if("serviceWorker" in navigator){
+document.getElementById("breakingNews").innerHTML =
+"🔥 புதிய அப்டேட்களுக்கு Refresh அழுத்துங்கள்.";
+}
 
-window.addEventListener("load",()=>{
+loadNews();
 
-navigator.serviceWorker.register("./sw.js")
-.then(()=>console.log("Service Worker Registered"))
-.catch(err=>console.log(err));
+document.getElementById("refreshBtn").addEventListener("click", loadNews);
 
+if ("serviceWorker" in navigator) {
+window.addEventListener("load", () => {
+navigator.serviceWorker.register("./sw.js");
 });
-
 }
