@@ -1,4 +1,4 @@
-const CACHE_NAME = "life-media-tamil-v1";
+const CACHE_NAME = "life-media-tamil-v2";
 
 const FILES_TO_CACHE = [
   "./",
