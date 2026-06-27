@@ -3,32 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d6efd">
+
+<title>Life Media Tamil</title>
 
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
 
-<title>Life Media Tamil</title>
+<meta name="theme-color" content="#d60000">
 </head>
 
 <body>
 
 <header>
-<h1>Life Media Tamil</h1>
+<h1>📰 Life Media Tamil</h1>
+
+<button id="refreshBtn">
+🔄 Refresh
+</button>
+
 </header>
 
-<main>
+<section id="breaking">
+<h2>🔥 Breaking News</h2>
 
-<button id="refreshBtn">Refresh</button>
-
-<div id="news">
-<h2>வரவேற்கிறோம்</h2>
-<p>இது GitHub Pages PWA Demo.</p>
+<div id="breakingNews">
+Loading...
 </div>
 
-</main>
+</section>
+
+<section>
+
+<h2>📰 Latest News</h2>
+
+<div id="news"></div>
+
+</section>
+
+<section>
+
+<h2>📺 Latest Videos</h2>
+
+<div id="videos"></div>
+
+</section>
+
+<footer>
+
+<p>
+© 2025 Life Media Tamil
+</p>
+
+</footer>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
