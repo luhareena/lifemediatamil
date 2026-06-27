@@ -1,303 +1,62 @@
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Media Tamil</title>
 
-<title>Life Media Tamil | AI • Technology • Education</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
 
-<meta name="description" content="Life Media Tamil - AI, Technology, Education, Students, Kids, Motivation">
-<meta name="keywords" content="AI Tamil, Technology, Students, Kids">
-<meta name="author" content="Mohamed Niyas">
-
-<meta name="theme-color" content="#0d6efd">
-
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="logo.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="stylesheet" href="style.css">
-
+    <meta name="theme-color" content="#0d6efd">
 </head>
-
 <body>
 
-<!-- Loading -->
-
-<div id="loader">
-<div class="loader-logo">🚀</div>
-<h2>Life Media Tamil</h2>
-<p>Loading...</p>
-</div>
-
-<!-- Background -->
-
-<div class="bg-animation">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<!-- Header -->
-
 <header class="header">
-
-<div class="logo">
-🚀 Life Media Tamil
-</div>
-
-<nav id="navMenu">
-
-<a href="#home">
-<i class="fa-solid fa-house"></i>
-Home
-</a>
-
-<a href="#dashboard">
-Dashboard
-</a>
-
-<a href="#ai">
-AI
-</a>
-
-<a href="#students">
-Students
-</a>
-
-<a href="#technology">
-Technology
-</a>
-
-<a href="#contact">
-Contact
-</a>
-
-</nav>
-
-<div class="header-buttons">
-
-<button class="icon-btn" onclick="toggleDark()">
-🌙
-</button>
-
-<button class="icon-btn" onclick="toggleMenu()">
-☰
-</button>
-
-</div>
-
+    <h1>Life Media Tamil</h1>
+    <p>தமிழ் AI • Technology • Education</p>
 </header>
 
-<!-- Hero -->
+<nav class="menu">
+    <a href="#">Home</a>
+    <a href="#">Videos</a>
+    <a href="#">AI Tools</a>
+    <a href="#">Contact</a>
+</nav>
 
-<section class="hero" id="home">
+<section class="hero">
+    <h2>வணக்கம் 👋</h2>
+    <p>Life Media Tamil இணையதளத்திற்கு வரவேற்கிறோம்.</p>
 
-<div class="hero-content">
+    <button onclick="showMessage()">
+        தொடங்குங்கள்
+    </button>
+</section>
 
-<h1>
-Welcome To
-<span>Life Media Tamil</span>
-</h1>
+<section class="cards">
 
-<p>
-AI • Technology • Education • Motivation
-</p>
-
-<div class="hero-search">
-
-<input
-type="text"
-id="siteSearch"
-placeholder="Search Website">
-
-<button onclick="handleMegaSearch()">
-Search
-</button>
-
-<button onclick="startVoice()">
-🎤
-</button>
-
+<div class="card">
+<h3>🤖 AI</h3>
+<p>தமிழில் AI தகவல்கள்.</p>
 </div>
 
+<div class="card">
+<h3>🎬 YouTube</h3>
+<p>புதிய வீடியோக்கள்.</p>
+</div>
+
+<div class="card">
+<h3>💡 Ideas</h3>
+<p>புதிய கண்டுபிடிப்பு ஐடியாக்கள்.</p>
 </div>
 
 </section>
 
-<!-- Dashboard -->
-
-<section class="dashboard" id="dashboard">
-
-<div class="card">
-🌦️
-<h3>Weather</h3>
-<p id="weatherData">Loading...</p>
-</div>
-
-<div class="card">
-📰
-<h3>Latest News</h3>
-<p>Daily Tamil News</p>
-</div>
-
-<div class="card">
-💰
-<h3>Gold Price</h3>
-<p>Today's Gold Rate</p>
-</div>
-
-<div class="card">
-📈
-<h3>Forex</h3>
-<p>Live Currency</p>
-</div>
-
-<div class="card">
-🤖
-<h3>AI Tools</h3>
-<p>Best AI Websites</p>
-</div>
-
-<div class="card">
-🎥
-<h3>YouTube</h3>
-<p>Life Media Tamil</p>
-</div>
-
-</section>
-<!-- AI Chat -->
-
-<button class="chat-btn" onclick="toggleChat()">
-💬
-</button>
-
-<div class="chat-box" id="chatBox">
-
-<div class="chat-header">
-🤖 Life Media AI
-<span onclick="toggleChat()">✖</span>
-</div>
-
-<div class="chat-body" id="chatBody">
-
-<div class="bot">
-👋 வணக்கம்! Life Media Tamil-க்கு வரவேற்கிறோம்.
-</div>
-
-</div>
-
-<div class="chat-input">
-
-<input
-type="text"
-id="userInput"
-placeholder="உங்கள் கேள்வியை எழுதுங்கள்...">
-
-<button onclick="sendMsg()">
-Send
-</button>
-
-</div>
-
-</div>
-
-<!-- Live Clock -->
-
-<div id="liveClock" class="clock"></div>
-
-<!-- Google Translate -->
-
-<div id="google_translate_element"></div>
-
-<!-- WhatsApp -->
-
-<a href="https://wa.me/91YOURNUMBER"
-target="_blank"
-class="whatsapp-btn">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
-<!-- Scroll Top -->
-
-<button
-id="topBtn"
-onclick="scrollTopPage()">
-
-⬆
-
-</button>
-
-<!-- Footer -->
-
-<footer id="contact">
-
-<div class="footer-container">
-
-<h2>🚀 Life Media Tamil</h2>
-
-<p>
-AI • Technology • Education • Motivation
-</p>
-
-<div class="footer-links">
-
-<a href="https://youtube.com/@lifemediatamil">
-YouTube
-</a>
-
-<a href="https://niyascomputers.blogspot.com">
-Blog
-</a>
-
-<a href="#">
-Privacy Policy
-</a>
-
-<a href="#">
-Contact
-</a>
-
-</div>
-
-<p>
+<footer>
 © 2026 Life Media Tamil
-</p>
-
-</div>
-
 </footer>
-
-<!-- Google Translate Script -->
-
-<script>
-function googleTranslateElementInit() {
-new google.translate.TranslateElement(
-{
-pageLanguage:'ta'
-},
-'google_translate_element'
-);
-}
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<!-- Main JS -->
 
 <script src="script.js"></script>
 
 </body>
 </html>
-    
