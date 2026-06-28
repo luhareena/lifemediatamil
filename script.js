@@ -1,45 +1,63 @@
-const news = [
-{
-title: "Life Media Tamil-க்கு வரவேற்கிறோம்",
-content: "தமிழ் செய்திகள், முக்கிய நிகழ்வுகள் மற்றும் புதிய அப்டேட்கள் இங்கே கிடைக்கும்.",
-image: "https://picsum.photos/600/300?1"
-},
-{
-title: "இன்று முக்கிய செய்திகள்",
-content: "உலகம், இந்தியா மற்றும் தமிழ்நாட்டின் முக்கிய செய்திகள் தொடர்ந்து புதுப்பிக்கப்படும்.",
-image: "https://picsum.photos/600/300?2"
-},
-{
-title: "YouTube சேனலை Subscribe செய்யுங்கள்",
-content: "Life Media Tamil YouTube சேனலில் புதிய வீடியோக்களை தொடர்ந்து பாருங்கள்.",
-image: "https://picsum.photos/600/300?3"
-}
-];
-
-function loadNews() {
-const newsDiv = document.getElementById("news");
-newsDiv.innerHTML = "";
-
-news.forEach(item => {
-newsDiv.innerHTML += `
-<div class="card">
-<img src="${item.image}" alt="">
-<h3>${item.title}</h3>
-<p>${item.content}</p>
-</div>
-`;
-});
-
-document.getElementById("breakingNews").innerHTML =
-"🔥 புதிய அப்டேட்களுக்கு Refresh அழுத்துங்கள்.";
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("show");
 }
 
-loadNews();
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
 
-document.getElementById("refreshBtn").addEventListener("click", loadNews);
+function toggleChat(){
+let box = document.getElementById("chatBox");
+box.style.display = (box.style.display === "block") ? "none" : "block";
+}
 
-if ("serviceWorker" in navigator) {
-window.addEventListener("load", () => {
-navigator.serviceWorker.register("./sw.js");
-});
+function checkEnter(event) {
+if (event.key === "Enter") {
+sendMsg();
+}
+}
+
+function sendMsg(){
+let input = document.getElementById("userInput");
+let chat = document.getElementById("chatBody");
+
+if(input.value.trim() === "") return;
+
+// பயனர் மெசேஜ்
+chat.innerHTML += <div class="user"&gt;${input.value}</div>`;
+
+// பாட் பதில்
+let reply = getAIReply(input.value);
+
+// லோடிங் டைமிங் ஃபீல் வரவைக்க 300ms தாமதம்
+setTimeout(() => {
+chat.innerHTML += <div class="bot"&gt;${reply}</div>`;
+chat.scrollTop = chat.scrollHeight;
+}, 300);
+
+input.value = "";
+chat.scrollTop = chat.scrollHeight;
+}
+
+function getAIReply(msg){
+msg = msg.toLowerCase().trim();
+
+if(msg.includes("hi") || msg.includes("hello") || msg.includes("வணக்கம்")){
+return "👋 வணக்கம்! லைஃப் மீடியா தமிழ் உங்களை வரவேற்கிறது!";
+}
+else if(msg.includes("youtube") || msg.includes("வீடியோ") || msg.includes("video")){
+return "▶ எங்கள் யூடியூப் சேனலைக் காண மேலே உள்ள 'Visit YouTube' பட்டனை அழுத்தவும் அல்லது <a href='https://youtube.com/@lifemediatamil' target='_blank'>இங்கே கிளிக் செய்யவும்</a>.";
+}
+else if(msg.includes("ai") || msg.includes("ஏஐ")){
+return "🤖 நான் உங்களுக்காக உருவாக்கப்பட்ட ஒரு எளிய AI சாட் அசிஸ்டண்ட்!";
+}
+else if(msg.includes("app") || msg.includes("ஆப்")){
+return "📱 எங்களது பிரத்யேக ஆண்ட்ராய்டு ஆப் விரைவில் வெளியாகவுள்ளது. காத்திருங்கள்!";
+}
+else if(msg.includes("நன்றி") || msg.includes("thanks")){
+return "💖 மிக்க நன்றி! உங்களுக்கு வேறு ஏதேனும் விபரங்கள் வேண்டுமா?";
+}
+else{
+return "🙂 தங்களின் கேள்வி எனக்குப் புரிகிறது, நான் இன்னும் புதிய விஷயங்களைக் கற்றுக் கொண்டு வருகிறேன்!";
+}
 }
