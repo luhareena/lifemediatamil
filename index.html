@@ -1,239 +1,374 @@
-
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Life Media Tamil | Ultimate Portal</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Media Tamil | Ultimate Portal</title>
+    <meta name="description" content="Life Media Tamil - AI, Technology, Inventions, Motivation, and Educational Portal for Students.">
+    <meta name="keywords" content="Life Media Tamil, TNPSC, UPSC, AI Videos, Tech Tips, Kids Stories">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', 'Mukta Malar', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .content-box { display: none; }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+        .dark-mode .card-bg {
+            background-color: #2d3748;
+            color: #fff;
+        }
+        .dark-mode header {
+            background-color: #2d3748;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<header>
-<div class="logo">🚀 Life Media Tamil</div>
+    <header class="bg-white shadow-md sticky top-0 z-50 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600 flex items-center gap-2">🚀 Life Media Tamil</div>
+            
+            <nav id="navMenu" class="hidden md:flex space-x-6 font-medium">
+                <a href="#" class="hover:text-blue-600 transition">Home</a>
+                <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="hover:text-blue-600 transition">📱 Companion App</a>
+                <a href="https://niyascomputers.blogspot.com" target="_blank" class="hover:text-blue-600 transition">💻 Computers Blog</a>
+                <a href="https://youtube.com/@lifemediatamil" target="_blank" class="hover:text-blue-600 transition">▶ YouTube</a>
+            </nav>
 
-<nav id="navMenu">
-<a href="#">Home</a>
-<a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank">📱 Niyas Tamil Companion App</a>
-<a href="https://niyascomputers.blogspot.com" target="_blank">💻 Niyas Computers Blog</a>
-<a href="https://youtube.com/@lifemediatamil" target="_blank">▶ @lifemediatamil</a>
-</nav>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleDark()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 text-xl" title="Toggle Dark Mode">🌙</button>
+                <button onclick="toggleMenu()" class="md:hidden p-2 text-xl">☰</button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden bg-gray-100 dark:bg-gray-800 px-4 py-3 flex flex-col space-y-2 md:hidden">
+            <a href="#" class="block py-1 hover:text-blue-600">Home</a>
+            <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="block py-1 hover:text-blue-600">📱 Companion App</a>
+            <a href="https://niyascomputers.blogspot.com" target="_blank" class="block py-1 hover:text-blue-600">💻 Computers Blog</a>
+            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="block py-1 hover:text-blue-600">▶ YouTube</a>
+        </div>
+    </header>
 
-<div class="header-actions">
-<button onclick="toggleDark()" class="action-btn">🌙</button>
-<button onclick="toggleMenu()" class="menu-btn">☰</button>
-</div>
-</header>
+    <section class="bg-gradient-to-r align-middle from-blue-600 to-indigo-700 text-white text-center py-20 px-4 shadow-inner">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Life Media Tamil</h1>
+        <p class="text-lg md:text-xl opacity-90 mb-8 font-light">AI • Technology • Inventions • Motivation</p>
 
-<section class="hero">
-<h1>Welcome to Life Media Tamil</h1>
-<p>AI • Technology • Inventions • Motivation</p>
+        <div class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-3">
+            <input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" 
+                   placeholder="இங்கே தேடுங்கள் அல்லது வெப்சைட் லிங்க் டைப் செய்யவும்..." 
+                   class="w-full px-5 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-4 focus:ring-blue-300 shadow-md">
+            <button onclick="handleMegaSearch()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold px-8 py-3 rounded-lg shadow-md transition-all duration-200 whitespace-nowrap">தேடு 🔍</button>
+        </div>
+    </section>
 
-<div class="mega-search-container">
-<input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள் அல்லது வெப்சைட் லிங்க் (உதா: www.google.com) டைப் செய்து என்டர் செய்யவும்...">
-<button onclick="handleMegaSearch()" class="search-btn-3d">தேடு 🔍</button>
-</div>
-</section>
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-16">
 
-<div class="container" style="max-width: 1100px; margin: 0 auto; padding: 20px; text-align: center;">
+        <section id="services" class="search-item">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 border-b-2 border-blue-500 pb-2 max-w-xs mx-auto">✨ எங்கள் சேவைகள்</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="https://youtube.com/@lifemediatamil" target="_blank" class="group card-bg bg-white p-6 rounded-xl shadow-md text-center hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-3 group-hover:scale-110 transition">🤖</div>
+                    <strong class="text-lg text-gray-700 dark:text-gray-200">AI Videos</strong>
+                </a>
+                <a href="https://youtube.com/@lifemediatamil" target="_blank" class="group card-bg bg-white p-6 rounded-xl shadow-md text-center hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-3 group-hover:scale-110 transition">🚀</div>
+                    <strong class="text-lg text-gray-700 dark:text-gray-200">Inventions</strong>
+                </a>
+                <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="group card-bg bg-white p-6 rounded-xl shadow-md text-center hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-3 group-hover:scale-110 transition">📱</div>
+                    <strong class="text-lg text-gray-700 dark:text-gray-200">Android Apps</strong>
+                </a>
+                <a href="https://youtube.com/@lifemediatamil" target="_blank" class="group card-bg bg-white p-6 rounded-xl shadow-md text-center hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl mb-3 group-hover:scale-110 transition">🎯</div>
+                    <strong class="text-lg text-gray-700 dark:text-gray-200">Motivation</strong>
+                </a>
+            </div>
+        </section>
 
-<section id="services" class="section search-item">
-<h2 class="section-title">✨ எங்கள் சேவைகள் (Our Services)</h2>
-<div class="grid">
-<a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
-<div class="card">🤖 <br><br><strong>AI Videos</strong></div>
-</a>
-<a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
-<div class="card">🚀 <br><br><strong>Inventions</strong></div>
-</a>
-<a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="card-link">
-<div class="card">📱 <br><br><strong>Android Apps</strong></div>
-</a>
-<a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
-<div class="card">🎯 <br><br><strong>Motivation</strong></div>
-</a>
-</div>
-</section>
+        <section id="students" class="search-item">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 border-b-2 border-blue-500 pb-2 max-w-xs mx-auto">🎓 மாணவர்கள் பகுதி</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-bg bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-500 text-center">
+                    <div class="text-4xl mb-3">📚</div>
+                    <h3 class="text-xl font-bold mb-2">போட்டித் தேர்வுகள் (TNPSC / UPSC)</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">அரசுப் பொதுத்தேர்வு மற்றும் போட்டித் தேர்வுகளுக்கான பாடத்திட்டங்கள்.</p>
+                    <button onclick="toggleContent('exam-content')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg transition shadow-md">விபரங்கள் காண்</button>
+                </div>
+                <div class="card-bg bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-500 text-center">
+                    <div class="text-4xl mb-3">✏️</div>
+                    <h3 class="text-xl font-bold mb-2">பொது அறிவு & குவிஸ்</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">மாணவர்களின் நினைவாற்றலையும் பொது அறிவையும் வளர்க்கும் கேள்விகள்.</p>
+                    <button onclick="toggleContent('quiz-content')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg transition shadow-md">பயிற்சி செய்</button>
+                </div>
+            </div>
 
-<section id="students" class="section search-item" style="padding: 20px 0;">
-<h2 class="section-title">🎓 மாணவர்கள் பகுதி (Students Corner)</h2>
-<div class="grid">
-<div class="card-box" style="--card-color: #2980b9;">
-<div class="icon-3d">📚</div>
-<h3>போட்டித் தேர்வுகள் (TNPSC / UPSC)</h3>
-<p>அரசுப் பொதுத்தேர்வு மற்றும் போட்டித் தேர்வுகளுக்கான பாடத்திட்டங்கள்.</p>
-<button onclick="toggleContent('exam-content')" class="btn btn-3d btn-blue">விபரங்கள் காண்</button>
-</div>
-<div class="card-box" style="--card-color: #2980b9;">
-<div class="icon-3d">✏️</div>
-<h3>பொது அறிவு & குவிஸ்</h3>
-<p>மாணவர்களின் நினைவாற்றலையும் பொது அறிவையும் வளர்க்கும் கேள்விகள்.</p>
-<button onclick="toggleContent('quiz-content')" class="btn btn-3d btn-blue">பயிற்சி செய்</button>
-</div>
-</div>
+            <div id="exam-content" class="content-box mt-6 card-bg bg-white p-6 rounded-xl shadow-inner border-l-4 border-blue-500">
+                <h4 class="text-lg font-bold mb-3 text-blue-600 dark:text-blue-400">📋 போட்டித் தேர்வு வழிகாட்டி:</h4>
+                <ul class="list-disc pl-5 space-y-2 mb-4">
+                    <li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
+                    <li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகாட்டுதல்கள்.</li>
+                </ul>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white text-sm px-4 py-2 rounded-md inline-flex items-center gap-2">📥 TNPSC Syllabus PDF</a>
+                    <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white text-sm px-4 py-2 rounded-md inline-flex items-center gap-2">📥 UPSC Syllabus PDF</a>
+                </div>
+            </div>
 
-<div id="exam-content" class="content-box" style="border-left-color: #2980b9;">
-<h4>📋 போட்டித் தேர்வு வழிகாட்டி:</h4>
-<ul>
-<li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
-<li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகாட்டுதல்கள்.</li>
-</ul>
-</div>
-<div id="quiz-content" class="content-box" style="border-left-color: #2980b9;">
-<h4>🧠 பொது அறிவு வினாடி-வினா:</h4>
-<ul>
-<li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</li>
-<li><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? (பதில்: பனை மரம்)</li>
-</ul>
-</div>
-</section>
+            <div id="quiz-content" class="content-box mt-6 card-bg bg-white p-6 rounded-xl shadow-inner border-l-4 border-blue-500">
+                <h4 class="text-lg font-bold mb-4 text-blue-600 dark:text-blue-400">🧠 பொது அறிவு வினாடி-வினா (Interactive):</h4>
+                <div class="space-y-4">
+                    <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                        <p class="font-medium mb-2">1. இந்தியாவின் தலைநகரம் எது?</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="checkAnswer(this, false)" class="bg-white dark:bg-gray-600 border px-3 py-1 rounded hover:bg-gray-50">மும்பை</button>
+                            <button onclick="checkAnswer(this, true)" class="bg-white dark:bg-gray-600 border px-3 py-1 rounded hover:bg-gray-50">புது டெல்லி</button>
+                            <button onclick="checkAnswer(this, false)" class="bg-white dark:bg-gray-600 border px-3 py-1 rounded hover:bg-gray-50">சென்னை</button>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                        <p class="font-medium mb-2">2. தமிழ்நாட்டின் மாநில மரம் எது?</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="checkAnswer(this, true)" class="bg-white dark:bg-gray-600 border px-3 py-1 rounded hover:bg-gray-50">பனை மரம்</button>
+                            <button onclick="checkAnswer(this, false)" class="bg-white dark:bg-gray-600 border px-3 py-1 rounded hover:bg-gray-50">ஆலமரம்</button>
+                            <button onclick="checkAnswer(this, false)" class="bg-white dark:bg-gray-600 border px-3 py-1 rounded hover:bg-gray-50">வேப்பமரம்</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="kids" class="section search-item" style="padding: 20px 0;">
-<h2 class="section-title">👶 சிறியவர்கள் பகுதி (Kids Zone)</h2>
-<div class="grid">
-<div class="card-box" style="--card-color: #27ae60;">
-<div class="icon-3d">🐯</div>
-<h3>நீதிக்கதைகள் & பஞ்சதந்திர கதைகள்</h3>
-<p>குழந்தைகளின் நற்பண்புகளை வளர்க்கும் அழகிய தமிழ் நீதிக்கதைகள்.</p>
-<button onclick="toggleContent('story-content')" class="btn btn-3d btn-green">KIDS STORIES</button>
-</div>
-<div class="card-box" style="--card-color: #27ae60;">
-<div class="icon-3d">🅰️</div>
-<h3>அடிப்படைத் தமிழ் & ஆங்கிலம்</h3>
-<p>குழந்தைகள் எளிதாகப் பழகும் வகையில் தமிழ் உயிர் எழுத்துக்கள்.</p>
-<button onclick="toggleContent('kids-learn')" class="btn btn-3d btn-green">LEARN TAMIL</button>
-</div>
-</div>
+        <section id="kids" class="search-item">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 border-b-2 border-green-500 pb-2 max-w-xs mx-auto">👶 சிறியவர்கள் பகுதி</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-bg bg-white p-8 rounded-xl shadow-lg border-t-4 border-green-500 text-center">
+                    <div class="text-4xl mb-3">🐯</div>
+                    <h3 class="text-xl font-bold mb-2">நீதிக்கதைகள் & பஞ்சதந்திர கதைகள்</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">குழந்தைகளின் நற்பண்புகளை வளர்க்கும் அழகிய தமிழ் நீதிக்கதைகள்.</p>
+                    <button onclick="toggleContent('story-content')" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2.5 rounded-lg transition shadow-md">KIDS STORIES</button>
+                </div>
+                <div class="card-bg bg-white p-8 rounded-xl shadow-lg border-t-4 border-green-500 text-center">
+                    <div class="text-4xl mb-3">🅰️</div>
+                    <h3 class="text-xl font-bold mb-2">அடிப்படைத் தமிழ் & ஆங்கிலம்</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">குழந்தைகள் எளிதாகப் பழகும் வகையில் தமிழ் உயிர் எழுத்துக்கள்.</p>
+                    <button onclick="toggleContent('kids-learn')" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2.5 rounded-lg transition shadow-md">LEARN TAMIL</button>
+                </div>
+            </div>
 
-<div id="story-content" class="content-box" style="border-left-color: #27ae60;">
-<h4>📖 சிங்கமும் எலியும் (நீதிக்கதை):</h4>
-<p>ஒரு அடர்ந்த காட்டில் ஒரு பெரிய சிங்கம் தூங்கிக் கொண்டிருந்தது. அப்போது அங்கு வந்த ஒரு சிறிய சுட்டி எலி, சிங்கத்தின் உடலின் மீது ஏறி விளையாடியது...</p>
-<br>
-<h4>📖 ஆமையும் முயலும்:</h4>
-<p>முயல் தன் வேகத்தைக் கண்டு தற்பெருமை கொண்டு தூங்கியது, ஆனால் விடாமுயற்சியால் ஆமை பந்தயத்தில் வென்றது. <br><strong>நீதி:</strong> நிதானமும் விடாமுயற்சியும் எப்போதும் வெற்றியைத் தரும்.</p>
-</div>
-<div id="kids-learn" class="content-box" style="border-left-color: #27ae60;">
-<h4>🍎 தமிழ் உயிர் எழுத்துக்கள் (12):</h4>
-<p style="font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #27ae60; margin: 15px 0; text-align: center;">அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ</p>
-</div>
-</section>
+            <div id="story-content" class="content-box mt-6 card-bg bg-white p-6 rounded-xl shadow-inner border-l-4 border-green-500 space-y-4">
+                <div>
+                    <h4 class="font-bold text-green-600 dark:text-green-400">📖 சிங்கமும் எலியும் (நீதிக்கதை):</h4>
+                    <p class="text-gray-600 dark:text-gray-300">ஒரு அடர்ந்த காட்டில் ஒரு பெரிய சிங்கம் தூங்கிக் கொண்டிருந்தது. அப்போது அங்கு வந்த ஒரு சிறிய சுட்டி எலி, சிங்கத்தின் உடலின் மீது ஏறி விளையாடியது...</p>
+                </div>
+                <hr class="opacity-20">
+                <div>
+                    <h4 class="font-bold text-green-600 dark:text-green-400">📖 ஆமையும் முயலும்:</h4>
+                    <p class="text-gray-600 dark:text-gray-300">முயல் தன் வேகத்தைக் கண்டு தற்பெருமை கொண்டு தூங்கியது, ஆனால் விடாமுயற்சியால் ஆமை பந்தயத்தில் வென்றது.</p>
+                    <p class="mt-1 font-bold text-sm text-green-700 dark:text-green-300">நீதி: நிதானமும் விடாமுயற்சியும் எப்போதும் வெற்றியைத் தரும்.</p>
+                </div>
+            </div>
 
-<section id="adults" class="section search-item" style="padding: 20px 0;">
-<h2 class="section-title">👨‍💻 பெரியவர்கள் பகுதி (Adults & Tech Guide)</h2>
-<div class="grid">
-<div class="card-box" style="--card-color: #e67e22;">
-<div class="icon-3d">💻</div>
-<h3>கம்ப்யூட்டர் & மொபைல் டிப்ஸ்</h3>
-<p>தினசரி வாழ்க்கைக்குத் தேவையான கணினி தொழில்நுட்பங்கள்.</p>
-<button onclick="toggleContent('tech-content')" class="btn btn-3d btn-orange">தொழில்நுட்பம் அறி</button>
-</div>
-<div class="card-box" style="--card-color: #e67e22;">
-<div class="icon-3d">📰</div>
-<h3>பயனுள்ள கட்டுரைகள்</h3>
-<p>வலைப்பதிவுகள் மற்றும் புதிய ஆன்லைன் டிஜிட்டல் வேலை வாய்ப்புகள்.</p>
-<a href="https://niyascomputers.blogspot.com" target="_blank" class="btn btn-3d btn-orange" style="text-decoration:none;">VISIT BLOG</a>
-</div>
-</div>
+            <div id="kids-learn" class="content-box mt-6 card-bg bg-white p-6 rounded-xl shadow-inner border-l-4 border-green-500 text-center">
+                <h4 class="text-lg font-bold mb-3 text-green-600 dark:text-green-400">🍎 தமிழ் உயிர் எழுத்துக்கள் (12):</h4>
+                <p class="text-2xl md:text-3xl font-bold tracking-widest text-green-600 dark:text-green-400 py-4">அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ</p>
+            </div>
+        </section>
 
-<div id="tech-content" class="content-box" style="border-left-color: #e67e22;">
-<h4>💻 கணினி மற்றும் மொபைல் டிப்ஸ்:</h4>
-<ul>
-<li>உங்கள் கணினி வேகமாக வேலை செய்ய, தற்காலிக கோப்புகளை (Temp files) வாரத்திற்கு ஒருமுறை நீக்குங்கள்.</li>
-<li>முக்கியமான ஆவணங்களை எப்போதும் கூகுள் டிரைவில் (Google Drive) பத்திரப்படுத்தி வைப்பது பாதுகாப்பானது.</li>
-</ul>
-</div>
-</section>
+        <section id="adults" class="search-item">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 border-b-2 border-orange-500 pb-2 max-w-xs mx-auto">👨‍💻 பெரியவர்கள் பகுதி</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-bg bg-white p-8 rounded-xl shadow-lg border-t-4 border-orange-500 text-center">
+                    <div class="text-4xl mb-3">💻</div>
+                    <h3 class="text-xl font-bold mb-2">கம்ப்யூட்டர் & மொபைல் டிப்ஸ்</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">தினசரி வாழ்க்கைக்குத் தேவையான கணினி தொழில்நுட்பங்கள்.</p>
+                    <button onclick="toggleContent('tech-content')" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2.5 rounded-lg transition shadow-md">தொழில்நுட்பம் அறி</button>
+                </div>
+                <div class="card-bg bg-white p-8 rounded-xl shadow-lg border-t-4 border-orange-500 text-center">
+                    <div class="text-4xl mb-3">📰</div>
+                    <h3 class="text-xl font-bold mb-2">பயனுள்ள கட்டுரைகள்</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">வலைப்பதிவுகள் மற்றும் புதிய ஆன்லைன் டிஜிட்டல் வேலை வாய்ப்புகள்.</p>
+                    <a href="https://niyascomputers.blogspot.com" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2.5 rounded-lg transition shadow-md inline-block">VISIT BLOG</a>
+                </div>
+            </div>
 
-<section id="videos" class="section search-item">
-<h2 class="section-title">🎬 Latest Video</h2>
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen></iframe>
-</div>
-</section>
+            <div id="tech-content" class="content-box mt-6 card-bg bg-white p-6 rounded-xl shadow-inner border-l-4 border-orange-500">
+                <h4 class="text-lg font-bold mb-3 text-orange-600 dark:text-orange-400">💻 கணினி மற்றும் மொபைல் டிப்ஸ்:</h4>
+                <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                    <li>உங்கள் கணினி வேகமாக வேலை செய்ய, தற்காலிக கோப்புகளை (Temp files) வாரத்திற்கு ஒருமுறை நீக்குங்கள்.</li>
+                    <li>முக்கியமான ஆவணங்களை எப்போதும் கூகுள் டிரைவில் (Google Drive) பத்திரப்படுத்தி வைப்பது பாதுகாப்பானது.</li>
+                </ul>
+            </div>
+        </section>
 
-</div>
+        <section id="videos" class="search-item">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 border-b-2 border-red-500 pb-2 max-w-xs mx-auto">🎬 Latest Video</h2>
+            <div class="max-w-3xl mx-auto overflow-hidden rounded-xl shadow-xl aspect-video">
+                <iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen class="w-full h-full border-0"></iframe>
+            </div>
+        </section>
 
-<footer>
-© 2026 Life Media Tamil | All Rights Reserved.
-</footer>
+    </main>
 
-<button class="chat-btn btn-3d" onclick="toggleChat()">💬</button>
+    <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-12 text-sm border-t border-gray-800">
+        © 2026 Life Media Tamil | All Rights Reserved.
+    </footer>
 
-<div class="chat-box" id="chatBox">
-<div class="chat-header">
-<span>🤖 AI Chat Assistant</span>
-<span onclick="toggleChat()" style="cursor:pointer; font-weight:bold;">✖</span>
-</div>
-<div class="chat-body" id="chatBody">
-<div class="bot">👋 வணக்கம்! நான் உங்களுக்கு எவ்வாறு உதவ வேண்டும்?</div>
-</div>
-<div class="chat-input">
-<input id="userInput" placeholder="Type message..." onkeypress="checkEnter(event)">
-<button onclick="sendMsg()">Send</button>
-</div>
-</div>
+    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition text-center text-xl" title="WhatsApp Us">
+            💚
+        </a>
+        <button class="bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition text-xl" onclick="toggleChat()" title="Open Chat">💬</button>
+    </div>
 
-<script src="script.js"></script>
-<script>
-// லைவ் கீவேர்டு சர்ச் வசதி
-function searchWebsite() {
-let input = document.getElementById('siteSearch').value.toLowerCase().trim();
+    <div class="fixed bottom-24 right-6 w-80 md:w-96 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 hidden flex-col z-50 overflow-hidden" id="chatBox">
+        <div class="bg-blue-600 text-white p-4 flex justify-between items-center font-bold">
+            <span>🤖 AI Chat Assistant</span>
+            <span onclick="toggleChat()" class="cursor-pointer text-xl">×</span>
+        </div>
+        <div class="p-4 h-64 overflow-y-auto space-y-3 text-sm flex flex-col" id="chatBody">
+            <div class="bg-gray-100 dark:bg-gray-700 p-2.5 rounded-lg max-w-[85%] self-start text-gray-800 dark:text-gray-100">👋 வணக்கம்! நான் உங்களுக்கு எவ்வாறு உதவ வேண்டும்?</div>
+        </div>
+        <div class="p-3 border-t dark:border-gray-700 flex gap-2 bg-gray-50 dark:bg-gray-900">
+            <input id="userInput" placeholder="Type message..." onkeypress="checkEnter(event)" class="w-full px-3 py-1.5 rounded border dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500 text-sm">
+            <button onclick="sendMsg()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded font-semibold text-sm transition">Send</button>
+        </div>
+    </div>
 
-// வெப்சைட் லிங்க் ஆக இருந்தால் கீவேர்டு சர்ச்சைத் தவிர்க்கவும்
-if (input.includes('www.') || input.includes('.com') || input.includes('.in') || input.includes('http')) {
-return;
-}
+    <script>
+        // மெனு டோகிள் (Mobile Menu)
+        function toggleMenu() {
+            var menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
 
-let items = document.getElementsByClassName('search-item');
-for (let i = 0; i < items.length; i++) {
-let text = items[i].innerText.toLowerCase();
-if (text.includes(input)) {
-items[i].style.display = "block";
-} else {
-items[i].style.display = "none";
-}
-}
-}
+        // டார்க் மோடு மாற்றி (Dark Mode toggle)
+        function toggleDark() {
+            document.body.classList.toggle('dark-mode');
+            // Tailwind-ன் dark class-ஐயும் toggle செய்கிறது
+            document.documentElement.classList.toggle('dark');
+        }
 
-// என்டர் கீ தட்டினால் வெப்சைட் ரீடைரெக்ட் ஆகும் வசதி
-function checkSearchEnter(event) {
-if (event.key === "Enter") {
-handleMegaSearch();
-}
-}
+        // லைவ் கீவேர்டு சர்ச் வசதி
+        function searchWebsite() {
+            let input = document.getElementById('siteSearch').value.toLowerCase().trim();
 
-// கூகுள் போன்று நேரடியாக வெப்சைட்டிற்கு அழைத்துச் செல்லும் வசதி
-function handleMegaSearch() {
-let query = document.getElementById('siteSearch').value.trim();
-if (query === "") return;
+            if (input.includes('www.') || input.includes('.com') || input.includes('.in') || input.includes('http')) {
+                return;
+            }
 
-// வெப்சைட் லிங்க் தானா என்று சரிபார்த்தல்
-if (query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
-let url = query;
-if (!/^https?:///i.test(url)) {
-url = 'https://' + url;
-}
-window.open(url, '_blank'); // புதிய டேபில் அந்த வெப்சைட் ஓப்பன் ஆகும்
-} else {
-// வெப்சைட் லிங்க் இல்லை என்றால் நேரடியாக கூகுளில் தேடும் வசதி
-window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
-}
-}
+            let items = document.getElementsByClassName('search-item');
+            for (let i = 0; i < items.length; i++) {
+                let text = items[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    items[i].style.display = "block";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
 
-// அக்கார்டியன் பாக்ஸ் ஓப்பன் செய்யும் வசதி
-function toggleContent(id) {
-var x = document.getElementById(id);
-if (x.style.display === "block") {
-x.style.display = "none";
-} else {
-var boxes = document.getElementsByClassName("content-box");
-for (var i = 0; i < boxes.length; i++) {
-boxes[i].style.display = "none";
-}
-x.style.display = "block";
-x.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-}
-</script>
+        function checkSearchEnter(event) {
+            if (event.key === "Enter") {
+                handleMegaSearch();
+            }
+        }
+
+        // மெகா சர்ச் மற்றும் கூகுள் ரீடைரெக்ட் (Fixed Regex)
+        function handleMegaSearch() {
+            let query = document.getElementById('siteSearch').value.trim();
+            if (query === "") return;
+
+            if (query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
+                let url = query;
+                if (!/^https?:\/\//i.test(url)) { // Fixed Regex syntax error here
+                    url = 'https://' + url;
+                }
+                window.open(url, '_blank');
+            } else {
+                window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+            }
+        }
+
+        // அக்கார்டியன் பாக்ஸ் ஓப்பன் செய்யும் வசதி
+        function toggleContent(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                var boxes = document.getElementsByClassName("content-box");
+                for (var i = 0; i < boxes.length; i++) {
+                    boxes[i].style.display = "none";
+                }
+                x.style.display = "block";
+                x.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // வினாடி வினா சரிபார்க்கும் வசதி (Interactive Quiz Logic)
+        function checkAnswer(button, isCorrect) {
+            // ஒருமுறை கிளிக் செய்தவுடன் அந்த குரூப்பில் உள்ள மற்ற பட்டன்களை முடக்குதல்
+            let parent = button.parentElement;
+            let buttons = parent.getElementsByTagName('button');
+            for(let btn of buttons) {
+                btn.disabled = true;
+                btn.className = "bg-gray-200 text-gray-400 border px-3 py-1 rounded cursor-not-allowed";
+            }
+            
+            if(isCorrect) {
+                button.className = "bg-green-500 text-white font-bold px-3 py-1 rounded shadow-md";
+                button.innerText += "  (சரி!)";
+            } else {
+                button.className = "bg-red-500 text-white font-bold px-3 py-1 rounded shadow-md";
+                button.innerText += "  (தவறு!)";
+            }
+        }
+
+        // சாட் பாக்ஸ் ஓப்பன்/குளோஸ்
+        function toggleChat() {
+            var chat = document.getElementById('chatBox');
+            if(chat.style.display === "flex") {
+                chat.style.display = "none";
+            } else {
+                chat.style.display = "flex";
+            }
+        }
+
+        function checkEnter(event) {
+            if (event.key === "Enter") { sendMsg(); }
+        }
+
+        // எளிய சாட் மெசேஜ் அனுப்பும் வசதி
+        function sendMsg() {
+            var input = document.getElementById('userInput');
+            var body = document.getElementById('chatBody');
+            if(input.value.trim() === "") return;
+
+            // User Message
+            var userDiv = document.createElement('div');
+            userDiv.className = "bg-blue-100 dark:bg-blue-900 p-2.5 rounded-lg max-w-[85%] self-end text-gray-800 dark:text-gray-100";
+            userDiv.innerText = input.value;
+            body.appendChild(userDiv);
+
+            let currentTxt = input.value;
+            input.value = "";
+            body.scrollTop = body.scrollHeight;
+
+            // Bot Simulated Reply
+            setTimeout(() => {
+                var botDiv = document.createElement('div');
+                botDiv.className = "bg-gray-100 dark:bg-gray-700 p-2.5 rounded-lg max-w-[85%] self-start text-gray-800 dark:text-gray-100";
+                botDiv.innerText = "உங்களின் செய்தி பெறப்பட்டது! எங்களுடைய 'Life Media Tamil' குழுவினர் விரைவில் பதிலளிப்பார்கள்.";
+                body.appendChild(botDiv);
+                body.scrollTop = body.scrollHeight;
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
