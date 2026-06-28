@@ -1,63 +1,54 @@
-function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("show");
+// ஆன்லைனில் இருக்கும் news.json ஃபைலில் இருந்து டேட்டாவை எடுக்கும் பங்க்ஷன்
+async function loadNews() {
+  const newsDiv = document.getElementById("news");
+  const breakingNewsDiv = document.getElementById("breakingNews");
+
+  try {
+    // news.json ஃபைலை ரீட் செய்கிறது
+    const response = await fetch('news.json');
+    if (!response.ok) {
+      throw new Error("News file லோட் ஆகவில்லை!");
+    }
+    
+    const news = await response.json();
+
+    if (newsDiv) {
+      newsDiv.innerHTML = "";
+      news.forEach(item => {
+        newsDiv.innerHTML += `
+          <div class="card">
+            <img src="${item.image}" alt="">
+            <h3>${item.title}</h3>
+            <p>${item.content}</p>
+          </div>
+        `;
+      });
+    }
+
+    if (breakingNewsDiv) {
+      breakingNewsDiv.innerHTML = "🔥 புதிய அப்டேட்களுக்கு Refresh அழுத்துங்கள்.";
+    }
+
+  } catch (error) {
+    console.error("Error loading news:", error);
+    if (breakingNewsDiv) {
+      breakingNewsDiv.innerHTML = "❌ செய்திகளை லோடு செய்வதில் பிரச்சனை!";
+    }
+  }
 }
 
-function toggleDark(){
-document.body.classList.toggle("dark");
+// பக்கம் லோட் ஆனவுடன் செய்திகளை லோடு செய்ய
+loadNews();
+
+// Refresh பட்டன் வேலை செய்ய
+const refreshBtn = document.getElementById("refreshBtn");
+if (refreshBtn) {
+  refreshBtn.addEventListener("click", loadNews);
 }
 
-function toggleChat(){
-let box = document.getElementById("chatBox");
-box.style.display = (box.style.display === "block") ? "none" : "block";
-}
-
-function checkEnter(event) {
-if (event.key === "Enter") {
-sendMsg();
-}
-}
-
-function sendMsg(){
-let input = document.getElementById("userInput");
-let chat = document.getElementById("chatBody");
-
-if(input.value.trim() === "") return;
-
-// பயனர் மெசேஜ்
-chat.innerHTML += <div class="user"&gt;${input.value}</div>`;
-
-// பாட் பதில்
-let reply = getAIReply(input.value);
-
-// லோடிங் டைமிங் ஃபீல் வரவைக்க 300ms தாமதம்
-setTimeout(() => {
-chat.innerHTML += <div class="bot"&gt;${reply}</div>`;
-chat.scrollTop = chat.scrollHeight;
-}, 300);
-
-input.value = "";
-chat.scrollTop = chat.scrollHeight;
-}
-
-function getAIReply(msg){
-msg = msg.toLowerCase().trim();
-
-if(msg.includes("hi") || msg.includes("hello") || msg.includes("வணக்கம்")){
-return "👋 வணக்கம்! லைஃப் மீடியா தமிழ் உங்களை வரவேற்கிறது!";
-}
-else if(msg.includes("youtube") || msg.includes("வீடியோ") || msg.includes("video")){
-return "▶ எங்கள் யூடியூப் சேனலைக் காண மேலே உள்ள 'Visit YouTube' பட்டனை அழுத்தவும் அல்லது <a href='https://youtube.com/@lifemediatamil' target='_blank'>இங்கே கிளிக் செய்யவும்</a>.";
-}
-else if(msg.includes("ai") || msg.includes("ஏஐ")){
-return "🤖 நான் உங்களுக்காக உருவாக்கப்பட்ட ஒரு எளிய AI சாட் அசிஸ்டண்ட்!";
-}
-else if(msg.includes("app") || msg.includes("ஆப்")){
-return "📱 எங்களது பிரத்யேக ஆண்ட்ராய்டு ஆப் விரைவில் வெளியாகவுள்ளது. காத்திருங்கள்!";
-}
-else if(msg.includes("நன்றி") || msg.includes("thanks")){
-return "💖 மிக்க நன்றி! உங்களுக்கு வேறு ஏதேனும் விபரங்கள் வேண்டுமா?";
-}
-else{
-return "🙂 தங்களின் கேள்வி எனக்குப் புரிகிறது, நான் இன்னும் புதிய விஷயங்களைக் கற்றுக் கொண்டு வருகிறேன்!";
-}
+// Service Worker Registration
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
 }
