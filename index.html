@@ -9,18 +9,11 @@
 </head>
 <body> 
 
-   <header>
+<header>
 <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-    <img src="./12986.PNG" alt="Life Media Tamil Logo" style="height: 40px; width: auto; border-radius: 5px;">
-    Life Media Tamil
+    <img src="./12986.PNG" alt="Life Media Tamil Logo" style="height: 40px; width: auto; border-radius: 5px; object-fit: contain;">
+    <span>Life Media Tamil</span>
 </div> 
-...
-</header>
-
-<div class="banner-container" style="width: 100%; overflow: hidden;">
-    <img src="./13000.png" alt="Life Media Tamil Banner" style="width: 100%; height: auto; display: block;">
-</div>
- 
 
 <nav id="navMenu">
 <a href="#">Home</a>
@@ -36,7 +29,7 @@
 </header> 
 
 <div class="banner-container" style="width: 100%; overflow: hidden;">
-    <img src="13000.png" alt="Life Media Tamil Banner" style="width: 100%; height: auto; display: block;">
+    <img src="./13000.png" alt="Life Media Tamil Banner" style="width: 100%; height: auto; display: block;">
 </div>
 
 <section class="hero">
@@ -44,7 +37,7 @@
 <p>AI • Technology • Inventions • Motivation</p> 
 
 <div class="mega-search-container">
-<input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள் அல்லது வெப்சைட் லிங்க் (உதா: www.google.com) டைப் செய்து என்டர் செய்யவும்...">
+<input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள் அல்லது வெப்சைட் லிங்க் டைப் செய்து என்டர் செய்யவும்...">
 <button onclick="handleMegaSearch()" class="search-btn-3d">தேடு 🔍</button>
 </div>
 </section> 
@@ -96,14 +89,14 @@
 </div>
 </div> 
 
-<div id="exam-content" class="content-box" style="border-left-color: #2980b9;">
+<div id="exam-content" class="content-box" style="border-left-color: #2980b9; display: none;">
 <h4>📋 போட்டித் தேர்வு வழிகாட்டி:</h4>
 <ul>
 <li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
 <li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகாட்டுதல்கள்.</li>
 </ul>
 </div>
-<div id="quiz-content" class="content-box" style="border-left-color: #2980b9;">
+<div id="quiz-content" class="content-box" style="border-left-color: #2980b9; display: none;">
 <h4>🧠 பொது அறிவு வினாடி-வினா:</h4>
 <ul>
 <li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</li>
@@ -129,14 +122,14 @@
 </div>
 </div> 
 
-<div id="story-content" class="content-box" style="border-left-color: #27ae60;">
+<div id="story-content" class="content-box" style="border-left-color: #27ae60; display: none;">
 <h4>📖 சிங்கமும் எலியும் (நீதிக்கதை):</h4>
 <p>ஒரு அடர்ந்த காட்டில் ஒரு பெரிய சிங்கம் தூங்கிக் கொண்டிருந்தது. அப்போது அங்கு வந்த ஒரு சிறிய சுட்டி எலி, சிங்கத்தின் உடலின் மீது ஏறி விளையாடியது...</p>
 <br>
 <h4>📖 ஆமையும் முயலும்:</h4>
 <p>முயல் தன் வேகத்தைக் கண்டு தற்பெருமை கொண்டு தூங்கியது, ஆனால் விடாமுயற்சியால் ஆமை பந்தயத்தில் வென்றது. <br><strong>நீதி:</strong> நிதானமும் விடாமுயற்சியும் எப்போதும் வெற்றியைத் தரும்.</p>
 </div>
-<div id="kids-learn" class="content-box" style="border-left-color: #27ae60;">
+<div id="kids-learn" class="content-box" style="border-left-color: #27ae60; display: none;">
 <h4>🍎 தமிழ் உயிர் எழுத்துக்கள் (12):</h4>
 <p style="font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #27ae60; margin: 15px 0; text-align: center;">அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ</p>
 </div>
@@ -159,7 +152,7 @@
 </div>
 </div> 
 
-<div id="tech-content" class="content-box" style="border-left-color: #e67e22;">
+<div id="tech-content" class="content-box" style="border-left-color: #e67e22; display: none;">
 <h4>💻 கணினி மற்றும் மொபைல் டிப்ஸ்:</h4>
 <ul>
 <li>உங்கள் கணினி வேகமாக வேலை செய்ய, தற்காலிக கோப்புகளை (Temp files) வாரத்திற்கு ஒருமுறை நீக்குங்கள்.</li>
@@ -177,8 +170,7 @@
 
 <section id="qr-section" class="section search-item" style="background: white; border-radius: 12px; padding: 20px; margin-top: 20px;">
     <h3 style="margin-bottom: 15px;">எங்கள் QR-ஐ ஸ்கேன் செய்யுங்கள்!</h3>
-    <img src="13190.jpg" alt="QR Code" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; color: #57606f;">(Links to your YouTube channel)</p>
+    <img src="./13190.jpg" alt="QR Code" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 </section>
 
 </div> 
@@ -205,75 +197,48 @@
 
 <script src="script.js"></script>
 <script>
-// லைவ் கீவேர்டு சர்ச் வசதி
+// லைவ் சர்ச் வசதி
 function searchWebsite() {
 let input = document.getElementById('siteSearch').value.toLowerCase().trim(); 
-
-if (input.includes('www.') || input.includes('.com') || input.includes('.in') || input.includes('http')) {
-return;
-} 
+if (input.includes('www.') || input.includes('.com') || input.includes('.in') || input.includes('http')) return; 
 
 let items = document.getElementsByClassName('search-item');
 for (let i = 0; i < items.length; i++) {
 let text = items[i].innerText.toLowerCase();
-if (text.includes(input)) {
-items[i].style.display = "block";
-} else {
-items[i].style.display = "none";
-}
+items[i].style.display = text.includes(input) ? "block" : "none";
 }
 } 
 
-function checkSearchEnter(event) {
-if (event.key === "Enter") {
-handleMegaSearch();
-}
-} 
+function checkSearchEnter(event) { if (event.key === "Enter") handleMegaSearch(); } 
 
 function handleMegaSearch() {
 let query = document.getElementById('siteSearch').value.trim();
 if (query === "") return; 
-
 if (query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
 let url = query;
-if (!/^https?:///i.test(url)) {
-url = 'https://' + url;
-}
+if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
 window.open(url, '_blank'); 
 } else {
 window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
 }
-} function toggleContent(id) {
-    var x = document.getElementById(id);
-    
-    // தற்போதைய ஸ்டைலைச் சரிபார்க்கிறது
-    var currentDisplay = window.getComputedStyle(x).display;
+} 
 
-    if (currentDisplay === "block") {
+// பட்டன்களை அழுத்தினால் அடுத்த ஸ்டெப் ஓபன் ஆகும் துல்லியமான லாஜிக்
+function toggleContent(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "block") {
         x.style.display = "none";
     } else {
-        // மற்ற அனைத்து பாக்ஸ்களையும் முதலில் மூடுகிறது
         var boxes = document.getElementsByClassName("content-box");
         for (var i = 0; i < boxes.length; i++) {
             boxes[i].style.display = "none";
         }
-        // கிளிக் செய்த பாக்ஸைத் திறக்கிறது
         x.style.display = "block";
-        
-        // மொபைலில் தானாக ஸ்க்ரோல் செய்யும் வசதி
         setTimeout(() => {
             x.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
+        }, 50);
     }
 }
-
-
-
-    
-var x = document.getElementById(id);
-if (x.style.display === "block") {
-x.style.display = "none";
-} else {
-var boxes = document.getElementsByClassName("content-box");
-for (var i = 0; i < boxes.length; i++) {
-boxes[i].style.display = "none";
+</script>
+</body>
+</html>
