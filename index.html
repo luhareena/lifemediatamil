@@ -8,55 +8,97 @@
     <link rel="stylesheet" href="style.css">
     <meta name="theme-color" content="#d60000">
     <style>
-        /* மங்கலாக இருக்கும் எழுத்துக்களைத் தெளிவாகக் காட்ட தற்காலிக ஸ்டைல் */
-        .services-section {
-            background-color: #1a1a1a; /* டார்க் பின்னணி */
-            color: #ffffff !important; /* தூய வெள்ளை நிற எழுத்துக்கள் */
-            padding: 20px;
-            text-align: center;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        .services-section h2 {
-            color: #ffcc00 !important; /* தங்க நிற தலைப்பு */
+        header {
+            background-color: #d60000;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 5px;
         }
         .main-banner {
             width: 100%;
             height: auto;
             display: block;
         }
+        section {
+            padding: 15px;
+            margin: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .services-section {
+            background-color: #1a1a1a;
+            color: #ffffff !important;
+            text-align: center;
+        }
+        .services-section h2 {
+            color: #ffcc00 !important;
+        }
         .qr-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: 20px 0;
-            background: #fff;
+            text-align: center;
             padding: 20px;
-            color: #000;
-            border-radius: 10px;
+            background: white;
         }
         .qr-image {
             width: 200px;
-            height: 200px;
+            height: auto;
+            margin: 10px auto;
+            display: block;
         }
-        .logo-img {
-            height: 50px;
-            vertical-align: middle;
-            margin-right: 10px;
+        #refreshBtn {
+            background: white;
+            color: #d60000;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        /* கார்டுகளுக்கான பேசிக் ஸ்டைல் */
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>
-        <img src="12986.png" alt="Life Media Tamil Logo" class="logo-img">
-        Life Media Tamil
-    </h1>
+    <div class="logo-container">
+        <img src="./12986.png" alt="Life Media Tamil Logo" class="logo-img">
+        <h1>Life Media Tamil</h1>
+    </div>
     <button id="refreshBtn">🔄 Refresh</button>
 </header>
 
 <div class="banner-container">
-    <img src="13000.png" alt="Life Media Tamil Banner" class="main-banner">
+    <img src="./13000.png" alt="Life Media Tamil Banner" class="main-banner">
 </div>
 
 <section id="breaking">
@@ -66,7 +108,8 @@
 
 <section class="services-section">
     <h2>✨ எங்கள் சேவைகள் (Our Services)</h2>
-    </section>
+    <p>இங்கு உங்கள் சேவைகளின் விவரங்களைச் சேர்க்கலாம்.</p>
+</section>
 
 <section>
     <h2>📰 Latest News</h2>
@@ -80,12 +123,12 @@
 
 <section class="qr-section">
     <h3>எங்கள் QR-ஐ ஸ்கேன் செய்யுங்கள்!</h3>
-    <img src="13190.jpg" alt="Life Media Tamil QR Code" class="qr-image">
+    <img src="./13190.jpg" alt="Life Media Tamil QR Code" class="qr-image">
     <p>(Scan to visit our YouTube Channel)</p>
 </section>
 
 <footer>
-    <p>© 2026 Life Media Tamil</p>
+    <p style="text-align: center; padding: 10px; color: #666;">© 2026 Life Media Tamil</p>
 </footer>
 
 <script src="script.js"></script>
