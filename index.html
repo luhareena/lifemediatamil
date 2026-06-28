@@ -1,136 +1,256 @@
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Media Tamil</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <meta name="theme-color" content="#d60000">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #d60000;
-            color: white;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo-img {
-            height: 50px;
-            width: auto;
-            margin-right: 10px;
-            border-radius: 5px;
-        }
-        .main-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        section {
-            padding: 15px;
-            margin: 10px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .services-section {
-            background-color: #1a1a1a;
-            color: #ffffff !important;
-            text-align: center;
-        }
-        .services-section h2 {
-            color: #ffcc00 !important;
-        }
-        .qr-section {
-            text-align: center;
-            padding: 20px;
-            background: white;
-        }
-        .qr-image {
-            width: 200px;
-            height: auto;
-            margin: 10px auto;
-            display: block;
-        }
-        #refreshBtn {
-            background: white;
-            color: #d60000;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        /* கார்டுகளுக்கான பேசிக் ஸ்டைல் */
-        .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Media Tamil | Ultimate Portal</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body> 
 
 <header>
-    <div class="logo-container">
-        <img src="./12986.png" alt="Life Media Tamil Logo" class="logo-img">
-        <h1>Life Media Tamil</h1>
-    </div>
-    <button id="refreshBtn">🔄 Refresh</button>
-</header>
+<div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="12986.png" alt="Logo" style="height: 40px; border-radius: 5px;">
+    Life Media Tamil
+</div> 
 
-<div class="banner-container">
-    <img src="./13000.png" alt="Life Media Tamil Banner" class="main-banner">
+<nav id="navMenu">
+<a href="#">Home</a>
+<a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank">📱 Niyas Tamil Companion App</a>
+<a href="https://niyascomputers.blogspot.com" target="_blank">💻 Niyas Computers Blog</a>
+<a href="https://youtube.com/@lifemediatamil" target="_blank">▶ @lifemediatamil</a>
+</nav> 
+
+<div class="header-actions">
+<button onclick="toggleDark()" class="action-btn">🌙</button>
+<button onclick="toggleMenu()" class="menu-btn">☰</button>
+</div>
+</header> 
+
+<div class="banner-container" style="width: 100%; overflow: hidden;">
+    <img src="13000.png" alt="Life Media Tamil Banner" style="width: 100%; height: auto; display: block;">
 </div>
 
-<section id="breaking">
-    <h2>🔥 Breaking News</h2>
-    <div id="breakingNews">Loading...</div>
+<section class="hero">
+<h1>Welcome to Life Media Tamil</h1>
+<p>AI • Technology • Inventions • Motivation</p> 
+
+<div class="mega-search-container">
+<input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள் அல்லது வெப்சைட் லிங்க் (உதா: www.google.com) டைப் செய்து என்டர் செய்யவும்...">
+<button onclick="handleMegaSearch()" class="search-btn-3d">தேடு 🔍</button>
+</div>
+</section> 
+
+<div class="container" style="max-width: 1100px; margin: 0 auto; padding: 20px; text-align: center;"> 
+
+<section id="breaking" class="section search-item" style="background: #fff3f3; border-radius: 12px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffcccc;">
+<h2 style="color: #d60000; font-size: 20px; margin-bottom: 5px;">🔥 Breaking News</h2>
+<div id="breakingNews" style="font-weight: bold;">Loading...</div>
 </section>
 
-<section class="services-section">
-    <h2>✨ எங்கள் சேவைகள் (Our Services)</h2>
-    <p>இங்கு உங்கள் சேவைகளின் விவரங்களைச் சேர்க்கலாம்.</p>
+<section id="services" class="section search-item">
+<h2 class="section-title">✨ எங்கள் சேவைகள் (Our Services)</h2>
+<div class="grid">
+<a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
+<div class="card">🤖 <br><br><strong>AI Videos</strong></div>
+</a>
+<a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
+<div class="card">🚀 <br><br><strong>Inventions</strong></div>
+</a>
+<a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="card-link">
+<div class="card">📱 <br><br><strong>Android Apps</strong></div>
+</a>
+<a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
+<div class="card">🎯 <br><br><strong>Motivation</strong></div>
+</a>
+</div>
+</section> 
+
+<section id="latest-news-section" class="section search-item">
+<h2 class="section-title">📰 Latest News</h2>
+<div id="news" class="grid"></div>
 </section>
 
-<section>
-    <h2>📰 Latest News</h2>
-    <div id="news"></div>
+<section id="students" class="section search-item" style="padding: 20px 0;">
+<h2 class="section-title">🎓 மாணவர்கள் பகுதி (Students Corner)</h2>
+<div class="grid">
+<div class="card-box" style="--card-color: #2980b9;">
+<div class="icon-3d">📚</div>
+<h3>போட்டித் தேர்வுகள் (TNPSC / UPSC)</h3>
+<p>அரசுப் பொதுத்தேர்வு மற்றும் போட்டித் தேர்வுகளுக்கான பாடத்திட்டங்கள்.</p>
+<button onclick="toggleContent('exam-content')" class="btn btn-3d btn-blue">விபரங்கள் காண்</button>
+</div>
+<div class="card-box" style="--card-color: #2980b9;">
+<div class="icon-3d">✏️</div>
+<h3>பொது அறிவு & குவிஸ்</h3>
+<p>மாணவர்களின் நினைவாற்றலையும் பொது அறிவையும் வளர்க்கும் கேள்விகள்.</p>
+<button onclick="toggleContent('quiz-content')" class="btn btn-3d btn-blue">பயிற்சி செய்</button>
+</div>
+</div> 
+
+<div id="exam-content" class="content-box" style="border-left-color: #2980b9;">
+<h4>📋 போட்டித் தேர்வு வழிகாட்டி:</h4>
+<ul>
+<li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
+<li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகாட்டுதல்கள்.</li>
+</ul>
+</div>
+<div id="quiz-content" class="content-box" style="border-left-color: #2980b9;">
+<h4>🧠 பொது அறிவு வினாடி-வினா:</h4>
+<ul>
+<li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</li>
+<li><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? (பதில்: பனை மரம்)</li>
+</ul>
+</div>
+</section> 
+
+<section id="kids" class="section search-item" style="padding: 20px 0;">
+<h2 class="section-title">👶 சிறியவர்கள் பகுதி (Kids Zone)</h2>
+<div class="grid">
+<div class="card-box" style="--card-color: #27ae60;">
+<div class="icon-3d">🐯</div>
+<h3>நீதிக்கதைகள் & பஞ்சதந்திர கதைகள்</h3>
+<p>குழந்தைகளின் நற்பண்புகளை வளர்க்கும் அழகிய தமிழ் நீதிக்கதைகள்.</p>
+<button onclick="toggleContent('story-content')" class="btn btn-3d btn-green">KIDS STORIES</button>
+</div>
+<div class="card-box" style="--card-color: #27ae60;">
+<div class="icon-3d">🅰️</div>
+<h3>அடிப்படைத் தமிழ் & ஆங்கிலம்</h3>
+<p>குழந்தைகள் எளிதாகப் பழகும் வகையில் தமிழ் உயிர் எழுத்துக்கள்.</p>
+<button onclick="toggleContent('kids-learn')" class="btn btn-3d btn-green">LEARN TAMIL</button>
+</div>
+</div> 
+
+<div id="story-content" class="content-box" style="border-left-color: #27ae60;">
+<h4>📖 சிங்கமும் எலியும் (நீதிக்கதை):</h4>
+<p>ஒரு அடர்ந்த காட்டில் ஒரு பெரிய சிங்கம் தூங்கிக் கொண்டிருந்தது. அப்போது அங்கு வந்த ஒரு சிறிய சுட்டி எலி, சிங்கத்தின் உடலின் மீது ஏறி விளையாடியது...</p>
+<br>
+<h4>📖 ஆமையும் முயலும்:</h4>
+<p>முயல் தன் வேகத்தைக் கண்டு தற்பெருமை கொண்டு தூங்கியது, ஆனால் விடாமுயற்சியால் ஆமை பந்தயத்தில் வென்றது. <br><strong>நீதி:</strong> நிதானமும் விடாமுயற்சியும் எப்போதும் வெற்றியைத் தரும்.</p>
+</div>
+<div id="kids-learn" class="content-box" style="border-left-color: #27ae60;">
+<h4>🍎 தமிழ் உயிர் எழுத்துக்கள் (12):</h4>
+<p style="font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #27ae60; margin: 15px 0; text-align: center;">அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ</p>
+</div>
+</section> 
+
+<section id="adults" class="section search-item" style="padding: 20px 0;">
+<h2 class="section-title">👨‍💻 பெரியவர்கள் பகுதி (Adults & Tech Guide)</h2>
+<div class="grid">
+<div class="card-box" style="--card-color: #e67e22;">
+<div class="icon-3d">💻</div>
+<h3>கம்ப்யூட்டர் & மொபைல் டிப்ஸ்</h3>
+<p>தினசரி வாழ்க்கைக்குத் தேவையான கணினி தொழில்நுட்பங்கள்.</p>
+<button onclick="toggleContent('tech-content')" class="btn btn-3d btn-orange">தொழில்நுட்பம் அறி</button>
+</div>
+<div class="card-box" style="--card-color: #e67e22;">
+<div class="icon-3d">📰</div>
+<h3>பயனுள்ள கட்டுரைகள்</h3>
+<p>வலைப்பதிவுகள் மற்றும் புதிய ஆன்லைன் டிஜிட்டல் வேலை வாய்ப்புகள்.</p>
+<a href="https://niyascomputers.blogspot.com" target="_blank" class="btn btn-3d btn-orange" style="text-decoration:none;">VISIT BLOG</a>
+</div>
+</div> 
+
+<div id="tech-content" class="content-box" style="border-left-color: #e67e22;">
+<h4>💻 கணினி மற்றும் மொபைல் டிப்ஸ்:</h4>
+<ul>
+<li>உங்கள் கணினி வேகமாக வேலை செய்ய, தற்காலிக கோப்புகளை (Temp files) வாரத்திற்கு ஒருமுறை நீக்குங்கள்.</li>
+<li>முக்கியமான ஆவணங்களை எப்போதும் கூகுள் டிரைவில் (Google Drive) பத்திரப்படுத்தி வைப்பது பாதுகாப்பானது.</li>
+</ul>
+</div>
+</section> 
+
+<section id="videos" class="section search-item">
+<h2 class="section-title">🎬 Latest Video</h2>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen></iframe>
+</div>
+</section> 
+
+<section id="qr-section" class="section search-item" style="background: white; border-radius: 12px; padding: 20px; margin-top: 20px;">
+    <h3 style="margin-bottom: 15px;">எங்கள் QR-ஐ ஸ்கேன் செய்யுங்கள்!</h3>
+    <img src="13190.jpg" alt="QR Code" style="width: 220px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <p style="margin-top: 10px; color: #57606f;">(Links to your YouTube channel)</p>
 </section>
 
-<section>
-    <h2>📺 Latest Videos</h2>
-    <div id="videos"></div>
-</section>
-
-<section class="qr-section">
-    <h3>எங்கள் QR-ஐ ஸ்கேன் செய்யுங்கள்!</h3>
-    <img src="./13190.jpg" alt="Life Media Tamil QR Code" class="qr-image">
-    <p>(Scan to visit our YouTube Channel)</p>
-</section>
+</div> 
 
 <footer>
-    <p style="text-align: center; padding: 10px; color: #666;">© 2026 Life Media Tamil</p>
-</footer>
+© 2026 Life Media Tamil | All Rights Reserved.
+</footer> 
+
+<button class="chat-btn btn-3d" onclick="toggleChat()">💬</button> 
+
+<div class="chat-box" id="chatBox">
+<div class="chat-header">
+<span>🤖 AI Chat Assistant</span>
+<span onclick="toggleChat()" style="cursor:pointer; font-weight:bold;">✖</span>
+</div>
+<div class="chat-body" id="chatBody">
+<div class="bot">👋 வணக்கம்! நான் உங்களுக்கு எவ்வாறு உதவ வேண்டும்?</div>
+</div>
+<div class="chat-input">
+<input id="userInput" placeholder="Type message..." onkeypress="checkEnter(event)">
+<button onclick="sendMsg()">Send</button>
+</div>
+</div> 
 
 <script src="script.js"></script>
+<script>
+// லைவ் கீவேர்டு சர்ச் வசதி
+function searchWebsite() {
+let input = document.getElementById('siteSearch').value.toLowerCase().trim(); 
+
+if (input.includes('www.') || input.includes('.com') || input.includes('.in') || input.includes('http')) {
+return;
+} 
+
+let items = document.getElementsByClassName('search-item');
+for (let i = 0; i < items.length; i++) {
+let text = items[i].innerText.toLowerCase();
+if (text.includes(input)) {
+items[i].style.display = "block";
+} else {
+items[i].style.display = "none";
+}
+}
+} 
+
+function checkSearchEnter(event) {
+if (event.key === "Enter") {
+handleMegaSearch();
+}
+} 
+
+function handleMegaSearch() {
+let query = document.getElementById('siteSearch').value.trim();
+if (query === "") return; 
+
+if (query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
+let url = query;
+if (!/^https?:///i.test(url)) {
+url = 'https://' + url;
+}
+window.open(url, '_blank'); 
+} else {
+window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+}
+} 
+
+function toggleContent(id) {
+var x = document.getElementById(id);
+if (x.style.display === "block") {
+x.style.display = "none";
+} else {
+var boxes = document.getElementsByClassName("content-box");
+for (var i = 0; i < boxes.length; i++) {
+boxes[i].style.display = "none";
+}
+x.style.display = "block";
+x.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+}
+</script>
 </body>
 </html>
