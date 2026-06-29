@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Media Tamil | Ultimate Portal</title>
     <style>
+        /* CSS STYLES */
         * {
             margin: 0;
             padding: 0;
@@ -42,23 +43,23 @@
         nav a { color: white; margin: 0 12px; text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 14px; }
         nav a:hover { color: #3498db; }
         .header-actions { display: flex; gap: 12px; align-items: center; }
-        .action-btn, .menu-btn { background: transparent; border: none; color: white; font-size: 20px; cursor: pointer; }
+        .action-btn, .menu-btn { background: transparent; border: none; color: white; font-size: 20px; cursor: pointer; outline: none; }
         .menu-btn { display: none; }
 
         /* HERO & MEGA SEARCH BAR */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         body.dark .hero { background: #1e293b; }
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .hero h1 { font-size: 32px; margin-bottom: 10px; }
 
         .mega-search-container {
             display: flex;
-            max-width: 750px;
-            margin: 30px auto 10px auto;
+            max-width: 700px;
+            margin: 25px auto 10px auto;
             gap: 10px;
             padding: 0 10px;
         }
@@ -71,12 +72,9 @@
             outline: none;
             box-shadow: 0 4px 0 #2980b9, 0 6px 15px rgba(0,0,0,0.1);
             transition: 0.2s;
-            font-weight: 500;
         }
-        body.dark .mega-search-container input {
-            background: #0f172a;
-            color: white;
-        }
+        body.dark .mega-search-container input { background: #0f172a; color: white; }
+        
         .search-btn-3d {
             padding: 0 25px;
             font-size: 16px;
@@ -87,21 +85,16 @@
             border-radius: 12px;
             cursor: pointer;
             box-shadow: 0 4px 0 #c0392b, 0 6px 10px rgba(0,0,0,0.1);
-            transition: all 0.1s ease;
         }
-        .search-btn-3d:active {
-            transform: translateY(4px);
-            box-shadow: 0 1px 0 #c0392b, 0 2px 3px rgba(0,0,0,0.1);
-        }
+        .search-btn-3d:active { transform: translateY(4px); box-shadow: none; }
 
-        /* container */
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; text-align: center; }
 
         /* BREAKING NEWS */
-        #breaking { background: #fff3f3; border-radius: 12px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffcccc; transition: 0.3s; }
+        #breaking { background: #fff3f3; border-radius: 12px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffcccc; }
         body.dark #breaking { background: #2d1f1f; border-color: #5c2424; color: #ff9999; }
 
-        /* 3D BUTTONS SYSTEM */
+        /* 3D BUTTONS */
         .btn {
             display: block;
             width: 100%;
@@ -113,25 +106,21 @@
             cursor: pointer;
             border: none;
             text-align: center;
-            transition: all 0.1s ease;
             text-decoration: none;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2);
         }
-        .btn-blue { background: #2980b9; box-shadow: 0 5px 0 #1b4f72; }
+        .btn-blue { background: #2980b9; }
         .btn-blue:hover { background: #3498db; }
-        .btn-green { background: #27ae60; box-shadow: 0 5px 0 #196f3d; }
+        .btn-green { background: #27ae60; }
         .btn-green:hover { background: #2ecc71; }
-        .btn-orange { background: #e67e22; box-shadow: 0 5px 0 #a04000; }
-        .btn-orange:hover { background: #f39c12; }
-        .btn:active { transform: translateY(4px); box-shadow: none; }
+        .btn:active { transform: translateY(2px); box-shadow: none; }
 
-        /* CARDS & GRID */
-        .section { padding: 30px 0; }
-        .section-title { font-size: 24px; color: #2c3e50; margin: 20px 0; border-bottom: 4px solid #3498db; padding-bottom: 6px; display: inline-block; font-weight: bold; }
+        /* GRID & CARDS */
+        .section { padding: 25px 0; }
+        .section-title { font-size: 24px; color: #2c3e50; margin: 20px 0; border-bottom: 4px solid #3498db; padding-bottom: 6px; display: inline-block; }
         body.dark .section-title { color: white; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; margin-top: 15px; }
-
-        .card-link { text-decoration: none; color: inherit; }
         .card, .card-box {
             background: white;
             padding: 25px;
@@ -141,34 +130,29 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-top: 5px solid var(--card-color, #3498db);
-            transition: 0.2s;
+            border-top: 5px solid #3498db;
         }
-        .card { border-top-color: #3498db; font-size: 18px; font-weight: bold; height: 100%; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         body.dark .card, body.dark .card-box { background: #1e293b; color: white; }
-
-        .card-box p { font-size: 14px; color: #57606f; margin: 10px 0 20px 0; min-height: 42px; }
+        .card-box p { font-size: 14px; color: #57606f; margin: 10px 0 20px 0; }
         body.dark .card-box p { color: #cbd5e1; }
         .icon-3d { font-size: 40px; margin-bottom: 10px; }
 
-        /* CONTENT BOX */
+        /* CONTENT BOX (ACCORDION) */
         .content-box { display: none; background: white; margin-top: 20px; padding: 25px; border-radius: 8px; border-left: 6px solid #3498db; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         body.dark .content-box { background: #1e293b; color: white; }
-        .content-box h4 { margin-bottom: 12px; font-size: 18px; font-weight: bold; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        body.dark .content-box h4 { border-bottom-color: #475569; }
+        .content-box h4 { margin-bottom: 12px; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
         .content-box ul { margin-left: 20px; }
-        .content-box ul li { margin-bottom: 10px; font-size: 15px; line-height: 1.5; }
+        .content-box ul li { margin-bottom: 10px; font-size: 15px; }
 
-        /* VIDEO EMBED */
+        /* VIDEO */
         .video-container { max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .video-container iframe { width: 100%; height: 350px; border: none; }
+        .video-container iframe { width: 100%; height: 315px; border: none; }
 
         /* FOOTER */
         footer { text-align: center; padding: 25px; background: #1a252f; color: #bdc3c7; font-size: 14px; margin-top: 40px; }
 
-        /* CHAT SYSTEM */
-        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #3498db; color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 24px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 1002; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        /* CHAT */
+        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #3498db; color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 24px; width: 60px; height: 60px; z-index: 1002; }
         .chat-box { position: fixed; bottom: 95px; right: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); display: none; overflow: hidden; z-index: 1001; }
         .chat-header { background: linear-gradient(135deg, #0f2027, #203a43); color: white; padding: 12px; display: flex; justify-content: space-between; font-weight: bold; }
         .chat-body { height: 250px; overflow-y: auto; padding: 12px; background: #f8f9fa; display: flex; flex-direction: column; }
@@ -181,165 +165,182 @@
         .bot { background: #e9ecef; color: #333; padding: 8px 12px; margin: 5px auto 5px 0; border-radius: 12px 12px 12px 0; max-width: 80%; word-wrap: break-word; font-size: 14px; }
         body.dark .bot { background: #475569; color: white; }
 
-        /* RESPONSIVE MOBILE MENU */
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             .menu-btn { display: block; }
-            nav { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: #1a252f; flex-direction: column; padding: 15px; text-align: center; }
+            nav { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: #1a252f; flex-direction: column; padding: 15px; }
             nav.show { display: flex; }
-            nav a { margin: 10px 0; }
+            nav a { margin: 10px 0; text-align: center; }
             .video-container iframe { height: 220px; }
         }
     </style>
 </head>
-<body> 
+<body>
 
 <header>
-    <div class="logo">
-        🚀 <span>Life Media Tamil</span>
-    </div> 
-
+    <div class="logo">🚀 <span>Life Media Tamil</span></div>
     <nav id="navMenu">
         <a href="#">Home</a>
         <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank">📱 Tamil App</a>
         <a href="https://niyascomputers.blogspot.com" target="_blank">💻 Blog</a>
         <a href="https://youtube.com/@lifemediatamil" target="_blank">▶ YouTube</a>
-    </nav> 
-
+    </nav>
     <div class="header-actions">
         <button onclick="toggleDark()" class="action-btn">🌙</button>
         <button onclick="toggleMenu()" class="menu-btn">☰</button>
     </div>
-</header> 
+</header>
 
 <section class="hero">
     <h1>Welcome to Life Media Tamil</h1>
-    <p>AI • Technology • Inventions • Motivation</p> 
-
+    <p>AI • Technology • Inventions • Motivation</p>
     <div class="mega-search-container">
-        <input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள் அல்லது லிங்க் டைப் செய்யவும்...">
+        <input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள்...">
         <button onclick="handleMegaSearch()" class="search-btn-3d">தேடு 🔍</button>
     </div>
-</section> 
+</section>
 
-<div class="container"> 
-
+<div class="container">
     <section id="breaking" class="search-item">
-        <h2 style="color: #d60000; font-size: 20px; margin-bottom: 5px;">🔥 Breaking News</h2>
-        <div id="breakingNews" style="font-weight: bold;">Loading latest updates...</div>
+        <h2 style="color: #d60000; font-size: 18px; margin-bottom: 5px;">🔥 Breaking News</h2>
+        <div id="breakingNews" style="font-weight: bold;">📢 புதிய செய்திகள் விரைவில்...</div>
     </section>
 
     <section id="services" class="section search-item">
-        <h2 class="section-title">✨ எங்கள் சேவைகள் (Our Services)</h2>
+        <h2 class="section-title">✨ எங்கள் சேவைகள்</h2>
         <div class="grid">
-            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
-                <div class="card">🤖 <br><br><strong>AI Videos</strong></div>
-            </a>
-            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
-                <div class="card">🚀 <br><br><strong>Inventions</strong></div>
-            </a>
-            <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank" class="card-link">
-                <div class="card">📱 <br><br><strong>Android Apps</strong></div>
-            </a>
-            <a href="https://youtube.com/@lifemediatamil" target="_blank" class="card-link">
-                <div class="card">🎯 <br><br><strong>Motivation</strong></div>
-            </a>
+            <div class="card">🤖<br><br>AI Videos</div>
+            <div class="card">🚀<br><br>Inventions</div>
+            <div class="card">📱<br><br>Android Apps</div>
+            <div class="card">🎯<br><br>Motivation</div>
         </div>
-    </section> 
-
-    <section id="latest-news-section" class="section search-item">
-        <h2 class="section-title">📰 Latest News</h2>
-        <div id="news" class="grid"></div>
     </section>
 
     <section id="students" class="section search-item">
-        <h2 class="section-title">🎓 மாணவர்கள் பகுதி (Students Corner)</h2>
+        <h2 class="section-title">🎓 மாணவர்கள் பகுதி</h2>
         <div class="grid">
-            <div class="card-box" style="--card-color: #2980b9;">
+            <div class="card-box">
                 <div class="icon-3d">📚</div>
                 <h3>போட்டித் தேர்வுகள்</h3>
-                <p>TNPSC / UPSC மற்றும் அரசுப் பொதுத்தேர்வு வழிகாட்டி.</p>
+                <p>TNPSC / UPSC தேர்விற்கான எளிய தமிழ் வழிகாட்டி.</p>
                 <button onclick="toggleContent('exam-content')" class="btn btn-blue">விபரங்கள் காண்</button>
             </div>
-            <div class="card-box" style="--card-color: #2980b9;">
+            <div class="card-box">
                 <div class="icon-3d">✏️</div>
-                <h3>பொது அறிவு & குவிஸ்</h3>
-                <p>மாணவர்களின் நினைவாற்றலை வளர்க்கும் எளிய கேள்விகள்.</p>
+                <h3>பொது அறிவு குவிஸ்</h3>
+                <p>அறிவை வளர்க்கும் சுவாரசியமான வினா-விடைகள்.</p>
                 <button onclick="toggleContent('quiz-content')" class="btn btn-blue">பயிற்சி செய்</button>
             </div>
-        </div> 
-
+        </div>
         <div id="exam-content" class="content-box">
-            <h4>📋 போட்டித் தேர்வு வழிகாட்டி:</h4>
+            <h4>📋 தேர்வு வழிகாட்டி:</h4>
             <ul>
-                <li><strong>TNPSC தேர்வுகள்:</strong> பொதுத்தமிழ் மற்றும் பொது அறிவு முக்கிய வினாக்கள்.</li>
-                <li><strong>UPSC தேர்வுகள்:</strong> சிவில் சர்வீஸ் தேர்வுக்கு தயாராவதற்கான அடிப்படை குறிப்புகள்.</li>
+                <li>TNPSC குரூப் தேர்வுகள்: பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
+                <li>UPSC தேர்வுகள்: சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகள்.</li>
             </ul>
         </div>
         <div id="quiz-content" class="content-box">
             <h4>🧠 பொது அறிவு வினாடி-வினா:</h4>
-            <ul>
-                <li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</li>
-                <li><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? (பதில்: பனை மரம்)</li>
-            </ul>
+            <p><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</p>
+            <p><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? (பதில்: பனை மரம்)</p>
         </div>
-    </section> 
+    </section>
 
     <section id="kids" class="section search-item">
-        <h2 class="section-title">👶 சிறியவர்கள் பகுதி (Kids Zone)</h2>
+        <h2 class="section-title">👶 சிறியவர்கள் பகுதி</h2>
         <div class="grid">
-            <div class="card-box" style="--card-color: #27ae60;">
+            <div class="card-box" style="border-top-color: #27ae60;">
                 <div class="icon-3d">🐯</div>
                 <h3>நீதிக்கதைகள்</h3>
-                <p>குழந்தைகளின் நற்பண்புகளை வளர்க்கும் பஞ்சதந்திர கதைகள்.</p>
+                <p>குழந்தைகளின் நற்பண்புகளை வளர்க்கும் கதைகள்.</p>
                 <button onclick="toggleContent('story-content')" class="btn btn-green">KIDS STORIES</button>
             </div>
-            <div class="card-box" style="--card-color: #27ae60;">
-                <div class="icon-3d">🅰️</div>
-                <h3>அடிப்படைத் தமிழ்</h3>
-                <p>குழந்தைகள் எளிதாகப் பழகும் வகையில் தமிழ் உயிர் எழுத்துக்கள்.</p>
-                <button onclick="toggleContent('kids-learn')" class="btn btn-green">LEARN TAMIL</button>
-            </div>
-        </div> 
-
+        </div>
         <div id="story-content" class="content-box">
             <h4>📖 சிங்கமும் எலியும்:</h4>
-            <p>ஒரு காட்டில் தூங்கிக் கொண்டிருந்த சிங்கத்தின் மேல் சுட்டி எலி ஒன்று விளையாடியது. சிங்கம் அதை பிடிக்க, எலி தன்னிடம் மன்னிப்பு கேட்டது. பின் ஒருநாள் வேடன் வலையில் சிங்கம் சிக்கியபோது, அந்த எலி வலையைக் கடித்து சிங்கத்தைக் காப்பாற்றியது. (நீதி: யாரையும் சிறியவர் என எண்ணக் கூடாது).</p>
+            <p>முயற்சியும், ஆபத்தில் செய்யும் உதவியும் ஒருவரை எப்போதும் காப்பாற்றும் என்ற நீதியை உணர்த்தும் கதை.</p>
         </div>
-        <div id="kids-learn" class="content-box">
-            <h4>🍎 தமிழ் உயிர் எழுத்துக்கள் (12):</h4>
-            <p style="font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #27ae60; text-align: center; margin: 15px 0;">அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ</p>
-        </div>
-    </section> 
+    </section>
 
     <section id="videos" class="section search-item">
         <h2 class="section-title">🎬 Latest Video</h2>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen></iframe>
         </div>
-    </section> 
+    </section>
+</div>
 
-</div> 
+<footer>© 2026 Life Media Tamil | All Rights Reserved.</footer>
 
-<footer>
-    © 2026 Life Media Tamil | All Rights Reserved.
-</footer> 
-
-<button class="chat-btn" onclick="toggleChat()">💬</button> 
+<button class="chat-btn" onclick="toggleChat()">💬</button>
 
 <div class="chat-box" id="chatBox">
     <div class="chat-header">
         <span>🤖 AI Chat Assistant</span>
-        <span onclick="toggleChat()" style="cursor:pointer; font-weight:bold;">✖</span>
+        <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
     </div>
-    <div class="chat-body" id="chatBody">
+    <div class="chat-body" id="chatBoxBody">
         <div class="bot">👋 வணக்கம்! நான் உங்களுக்கு எவ்வாறு உதவ வேண்டும்?</div>
     </div>
     <div class="chat-input">
         <input id="userInput" placeholder="Type message..." onkeypress="checkEnter(event)">
         <button onclick="sendMsg()">Send</button>
     </div>
-</div> 
+</div>
 
-<script src="script.js"></script>
+<script>
+    /* JAVASCRIPT LOGIC */
+    function toggleMenu() { document.getElementById("navMenu").classList.toggle("show"); }
+    function toggleDark() { document.body.classList.toggle("dark"); }
+    function toggleChat() {
+        let box = document.getElementById("chatBox");
+        box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+    function checkEnter(e) { if (e.key === "Enter") sendMsg(); }
+
+    function sendMsg() {
+        let input = document.getElementById("userInput");
+        let chat = document.getElementById("chatBoxBody");
+        if (input.value.trim() === "") return;
+
+        chat.innerHTML += `<div class="user">${input.value}</div>`;
+        let txt = input.value;
+        input.value = "";
+        chat.scrollTop = chat.scrollHeight;
+
+        setTimeout(() => {
+            let reply = "🤖 தங்களின் கேள்விக்கு நன்றி! நான் இன்னும் புதிய விஷயங்களைக் கற்றுக் கொண்டு வருகிறேன்.";
+            let lowTxt = txt.toLowerCase();
+            if(lowTxt.includes("hi") || lowTxt.includes("hello") || lowTxt.includes("வணக்கம்")) reply = "👋 வணக்கம்! லைஃப் மீடியா தமிழ் உங்களை வரவேற்கிறது!";
+            if(lowTxt.includes("youtube") || lowTxt.includes("video")) reply = "▶ எங்கள் யூடியூப் சேனலைக் காண மேலே உள்ள 'YouTube' லிங்க்கை கிளிக் செய்யவும்.";
+            
+            chat.innerHTML += `<div class="bot">${reply}</div>`;
+            chat.scrollTop = chat.scrollHeight;
+        }, 300);
+    }
+
+    function toggleContent(id) {
+        let x = document.getElementById(id);
+        let currentDisplay = window.getComputedStyle(x).display;
+        let boxes = document.getElementsByClassName("content-box");
+        for (let i = 0; i < boxes.length; i++) { boxes[i].style.display = "none"; }
+        if (currentDisplay !== "block") { x.style.display = "block"; }
+    }
+
+    function searchWebsite() {
+        let input = document.getElementById('siteSearch').value.toLowerCase().trim();
+        let items = document.getElementsByClassName('search-item');
+        for (let i = 0; i < items.length; i++) {
+            let text = items[i].innerText.toLowerCase();
+            items[i].style.display = text.includes(input) ? "block" : "none";
+        }
+    }
+    function checkSearchEnter(e) { if (e.key === "Enter") handleMegaSearch(); }
+    function handleMegaSearch() {
+        let q = document.getElementById('siteSearch').value.trim();
+        if (q === "") return;
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank');
+    }
+</script>
 </body>
 </html>
