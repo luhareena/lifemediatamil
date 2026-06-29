@@ -2,345 +2,560 @@
 <html lang="ta">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Media Tamil | Ultimate Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Life Media Tamil | Super App</title>
     <style>
-        /* CSS STYLES */
+        /* APP THEME & VARIABLES */
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #ff4757;
+            --success: #2ed573;
+            --warning: #ffa502;
+            --bg-light: #f1f2f6;
+            --bg-card-light: #ffffff;
+            --text-light: #2f3542;
+            
+            --bg-dark: #0f172a;
+            --bg-card-dark: #1e293b;
+            --text-dark: #f1f5f9;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: #f5f7fb;
-            color: #2f3542;
-            transition: 0.3s;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background 0.3s, color 0.3s;
+            padding-bottom: 70px; /* Space for bottom nav */
         }
 
         body.dark {
-            background: #0f172a;
-            color: #f1f5f9;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
         }
 
-        /* HEADER */
+        /* FIXED HEADER */
         header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .header-actions button {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        /* APP BANNER SLIDER (HERO) */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/800/400?tech') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 15px;
+        }
+
+        .hero-banner h1 { font-size: 26px; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .hero-banner p { font-size: 14px; opacity: 0.9; }
+
+        /* MEGA SEARCH BAR */
+        .search-box-container {
+            padding: 0 15px;
+            margin-top: -25px;
+            margin-bottom: 20px;
+        }
+
+        .search-wrapper {
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            padding: 5px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary);
+        }
+        body.dark .search-wrapper { background: var(--bg-card-dark); }
+
+        .search-wrapper input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            border-radius: 30px;
+            background: transparent;
+        }
+        body.dark .search-wrapper input { color: white; }
+
+        .search-wrapper button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+
+        /* MAIN CONTAINER & PAGES */
+        .app-container {
+            padding: 0 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-page { display: none; }
+        .app-page.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* QUICK ADS / BREAKING TAPE */
+        .ticker-wrap {
+            background: #fff3f3;
+            border-left: 5px solid var(--accent);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        body.dark .ticker-wrap { background: #2d1f1f; color: #ff9999; }
+
+        /* SECTION TILES & GRID */
+        .section-heading {
+            font-size: 18px;
+            margin: 15px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid var(--primary);
+            padding-left: 8px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .menu-card {
+            background: var(--bg-card-light);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        body.dark .menu-card { background: var(--bg-card-dark); border-color: rgba(255,255,255,0.05); }
+        .menu-card:active { transform: scale(0.97); }
+
+        .menu-card .icon { font-size: 36px; margin-bottom: 10px; display: block; }
+        .menu-card h3 { font-size: 16px; margin-bottom: 5px; }
+        .menu-card p { font-size: 12px; opacity: 0.7; }
+
+        /* HUB / DETAIL BOXES */
+        .detail-box {
+            background: var(--bg-card-light);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        body.dark .detail-box { background: var(--bg-card-dark); }
+        .detail-box h3 { font-size: 16px; margin-bottom: 10px; color: var(--secondary); border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 5px; }
+        body.dark .detail-box h3 { color: #3498db; border-bottom-color: rgba(255,255,255,0.08); }
+
+        .detail-box ul { list-style: none; }
+        .detail-box ul li { padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.05); font-size: 14px; display: flex; justify-content: space-between; }
+        .detail-box ul li:last-child { border: none; }
+
+        /* BUTTON DESIGN */
+        .action-link-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* VIDEO RESPONSIVE */
+        .media-box iframe {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            border: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .logo { font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        nav { display: flex; }
-        nav a { color: white; margin: 0 12px; text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 14px; }
-        nav a:hover { color: #3498db; }
-        .header-actions { display: flex; gap: 12px; align-items: center; }
-        .action-btn, .menu-btn { background: transparent; border: none; color: white; font-size: 20px; cursor: pointer; outline: none; }
-        .menu-btn { display: none; }
-
-        /* HERO & MEGA SEARCH BAR */
-        .hero {
-            text-align: center;
-            padding: 50px 20px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        body.dark .hero { background: #1e293b; }
-        .hero h1 { font-size: 32px; margin-bottom: 10px; }
-
-        .mega-search-container {
-            display: flex;
-            max-width: 700px;
-            margin: 25px auto 10px auto;
-            gap: 10px;
-            padding: 0 10px;
-        }
-        .mega-search-container input {
-            flex: 1;
-            padding: 15px 20px;
-            font-size: 16px;
-            border: 3px solid #3498db;
-            border-radius: 12px;
-            outline: none;
-            box-shadow: 0 4px 0 #2980b9, 0 6px 15px rgba(0,0,0,0.1);
-            transition: 0.2s;
-        }
-        body.dark .mega-search-container input { background: #0f172a; color: white; }
-        
-        .search-btn-3d {
-            padding: 0 25px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            background: #e74c3c;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            box-shadow: 0 4px 0 #c0392b, 0 6px 10px rgba(0,0,0,0.1);
-        }
-        .search-btn-3d:active { transform: translateY(4px); box-shadow: none; }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; text-align: center; }
-
-        /* BREAKING NEWS */
-        #breaking { background: #fff3f3; border-radius: 12px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffcccc; }
-        body.dark #breaking { background: #2d1f1f; border-color: #5c2424; color: #ff9999; }
-
-        /* 3D BUTTONS */
-        .btn {
-            display: block;
+        /* BOTTOM NAVIGATION BAR (REAL APP LOOK) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            padding: 12px 24px;
-            color: white;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 15px;
-            cursor: pointer;
-            border: none;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+            background: var(--bg-card-light);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+            z-index: 1000;
         }
-        .btn-blue { background: #2980b9; }
-        .btn-blue:hover { background: #3498db; }
-        .btn-green { background: #27ae60; }
-        .btn-green:hover { background: #2ecc71; }
-        .btn:active { transform: translateY(2px); box-shadow: none; }
+        body.dark .bottom-nav { background: var(--bg-card-dark); }
 
-        /* GRID & CARDS */
-        .section { padding: 25px 0; }
-        .section-title { font-size: 24px; color: #2c3e50; margin: 20px 0; border-bottom: 4px solid #3498db; padding-bottom: 6px; display: inline-block; }
-        body.dark .section-title { color: white; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; margin-top: 15px; }
-        .card, .card-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
+        .nav-item {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            border-top: 5px solid #3498db;
+            align-items: center;
+            color: #747d8c;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            flex: 1;
         }
-        body.dark .card, body.dark .card-box { background: #1e293b; color: white; }
-        .card-box p { font-size: 14px; color: #57606f; margin: 10px 0 20px 0; }
-        body.dark .card-box p { color: #cbd5e1; }
-        .icon-3d { font-size: 40px; margin-bottom: 10px; }
 
-        /* CONTENT BOX (ACCORDION) */
-        .content-box { display: none; background: white; margin-top: 20px; padding: 25px; border-radius: 8px; border-left: 6px solid #3498db; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        body.dark .content-box { background: #1e293b; color: white; }
-        .content-box h4 { margin-bottom: 12px; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        .content-box ul { margin-left: 20px; }
-        .content-box ul li { margin-bottom: 10px; font-size: 15px; }
+        .nav-item .nav-icon { font-size: 20px; margin-bottom: 2px; }
+        .nav-item.active { color: var(--primary); }
+        body.dark .nav-item.active { color: #54a0ff; }
 
-        /* VIDEO */
-        .video-container { max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .video-container iframe { width: 100%; height: 315px; border: none; }
+        /* AI CHAT VIEW COMPONENTS */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 220px);
+            background: var(--bg-card-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        body.dark .chat-container { background: var(--bg-card-dark); }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .msg { margin-bottom: 12px; max-width: 80%; padding: 10px 14px; font-size: 14px; line-height: 1.4; }
+        .msg.sent { background: var(--primary); color: white; border-radius: 15px 15px 0 15px; margin-left: auto; }
+        .msg.received { background: #e4e7eb; color: #2d3436; border-radius: 15px 15px 15px 0; }
+        body.dark .msg.received { background: #475569; color: white; }
 
-        /* FOOTER */
-        footer { text-align: center; padding: 25px; background: #1a252f; color: #bdc3c7; font-size: 14px; margin-top: 40px; }
-
-        /* CHAT */
-        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #3498db; color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 24px; width: 60px; height: 60px; z-index: 1002; }
-        .chat-box { position: fixed; bottom: 95px; right: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); display: none; overflow: hidden; z-index: 1001; }
-        .chat-header { background: linear-gradient(135deg, #0f2027, #203a43); color: white; padding: 12px; display: flex; justify-content: space-between; font-weight: bold; }
-        .chat-body { height: 250px; overflow-y: auto; padding: 12px; background: #f8f9fa; display: flex; flex-direction: column; }
-        body.dark .chat-body { background: #1e293b; }
-        .chat-input { display: flex; border-top: 1px solid #eee; }
-        .chat-input input { flex: 1; padding: 12px; border: none; outline: none; }
-        body.dark .chat-input input { background: #0f172a; color: white; }
-        .chat-input button { background: #3498db; color: white; border: none; padding: 0 15px; font-weight: bold; cursor: pointer; }
-        .user { background: #3498db; color: white; padding: 8px 12px; margin: 5px 0 5px auto; border-radius: 12px 12px 0 12px; max-width: 80%; word-wrap: break-word; font-size: 14px; }
-        .bot { background: #e9ecef; color: #333; padding: 8px 12px; margin: 5px auto 5px 0; border-radius: 12px 12px 12px 0; max-width: 80%; word-wrap: break-word; font-size: 14px; }
-        body.dark .bot { background: #475569; color: white; }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            .menu-btn { display: block; }
-            nav { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: #1a252f; flex-direction: column; padding: 15px; }
-            nav.show { display: flex; }
-            nav a { margin: 10px 0; text-align: center; }
-            .video-container iframe { height: 220px; }
+        .chat-input-bar {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: rgba(0,0,0,0.01);
+        }
+        .chat-input-bar input {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+        body.dark .chat-input-bar input { background: var(--bg-dark); color: white; border-color: #475569; }
+        .chat-input-bar button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 18px;
+            margin-left: 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">🚀 <span>Life Media Tamil</span></div>
-    <nav id="navMenu">
-        <a href="#">Home</a>
-        <a href="https://niyasreena-create.github.io/niys-tamil-companion-app/" target="_blank">📱 Tamil App</a>
-        <a href="https://niyascomputers.blogspot.com" target="_blank">💻 Blog</a>
-        <a href="https://youtube.com/@lifemediatamil" target="_blank">▶ YouTube</a>
-    </nav>
-    <div class="header-actions">
-        <button onclick="toggleDark()" class="action-btn">🌙</button>
-        <button onclick="toggleMenu()" class="menu-btn">☰</button>
+    <!-- APP TOP BAR -->
+    <header>
+        <div class="brand">🚀 <span>Life Media Tamil</span></div>
+        <div class="header-actions">
+            <button onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+        </div>
+    </header>
+
+    <!-- BANNER HERO -->
+    <section class="hero-banner">
+        <h1>Life Media Tamil</h1>
+        <p>AI • Technology • Inventions • Knowledge</p>
+    </section>
+
+    <!-- APP MEGA SEARCH -->
+    <div class="search-box-container">
+        <div class="search-wrapper">
+            <input type="text" id="appSearch" onkeyup="dynamicSearch()" onkeypress="handleSearchEnter(event)" placeholder="ஆப் முழுவதும் தேட அல்லது Google தேடலுக்கு...">
+            <button onclick="triggerMegaSearch()">தேடு 🔍</button>
+        </div>
     </div>
-</header>
 
-<section class="hero">
-    <h1>Welcome to Life Media Tamil</h1>
-    <p>AI • Technology • Inventions • Motivation</p>
-    <div class="mega-search-container">
-        <input type="text" id="siteSearch" onkeyup="searchWebsite()" onkeypress="checkSearchEnter(event)" placeholder="இங்கே தேடுங்கள்...">
-        <button onclick="handleMegaSearch()" class="search-btn-3d">தேடு 🔍</button>
-    </div>
-</section>
+    <!-- MAIN PAGES AREA -->
+    <div class="app-container">
 
-<div class="container">
-    <section id="breaking" class="search-item">
-        <h2 style="color: #d60000; font-size: 18px; margin-bottom: 5px;">🔥 Breaking News</h2>
-        <div id="breakingNews" style="font-weight: bold;">📢 புதிய செய்திகள் விரைவில்...</div>
-    </section>
-
-    <section id="services" class="section search-item">
-        <h2 class="section-title">✨ எங்கள் சேவைகள்</h2>
-        <div class="grid">
-            <div class="card">🤖<br><br>AI Videos</div>
-            <div class="card">🚀<br><br>Inventions</div>
-            <div class="card">📱<br><br>Android Apps</div>
-            <div class="card">🎯<br><br>Motivation</div>
-        </div>
-    </section>
-
-    <section id="students" class="section search-item">
-        <h2 class="section-title">🎓 மாணவர்கள் பகுதி</h2>
-        <div class="grid">
-            <div class="card-box">
-                <div class="icon-3d">📚</div>
-                <h3>போட்டித் தேர்வுகள்</h3>
-                <p>TNPSC / UPSC தேர்விற்கான எளிய தமிழ் வழிகாட்டி.</p>
-                <button onclick="toggleContent('exam-content')" class="btn btn-blue">விபரங்கள் காண்</button>
+        <!-- PAGE 1: HOME -->
+        <div id="page-home" class="app-page active">
+            <div class="ticker-wrap search-item">
+                🔥 <span>முக்கிய அறிவிப்பு: டிஜிட்டல் சான்றிதழ்கள், ஆன்லைன் பதிவுகள் மற்றும் ஸ்மார்ட் கார்டு சேவைகளுக்கு நமது சென்டரை அணுகலாம்!</span>
             </div>
-            <div class="card-box">
-                <div class="icon-3d">✏️</div>
-                <h3>பொது அறிவு குவிஸ்</h3>
-                <p>அறிவை வளர்க்கும் சுவாரசியமான வினா-விடைகள்.</p>
-                <button onclick="toggleContent('quiz-content')" class="btn btn-blue">பயிற்சி செய்</button>
-            </div>
-        </div>
-        <div id="exam-content" class="content-box">
-            <h4>📋 தேர்வு வழிகாட்டி:</h4>
-            <ul>
-                <li>TNPSC குரூப் தேர்வுகள்: பொதுத்தமிழ் மற்றும் பொது அறிவுப் பாடங்கள்.</li>
-                <li>UPSC தேர்வுகள்: சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான எளிய வழிகள்.</li>
-            </ul>
-        </div>
-        <div id="quiz-content" class="content-box">
-            <h4>🧠 பொது அறிவு வினாடி-வினா:</h4>
-            <p><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? (பதில்: புது டெல்லி)</p>
-            <p><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? (பதில்: பனை மரம்)</p>
-        </div>
-    </section>
 
-    <section id="kids" class="section search-item">
-        <h2 class="section-title">👶 சிறியவர்கள் பகுதி</h2>
-        <div class="grid">
-            <div class="card-box" style="border-top-color: #27ae60;">
-                <div class="icon-3d">🐯</div>
-                <h3>நீதிக்கதைகள்</h3>
-                <p>குழந்தைகளின் நற்பண்புகளை வளர்க்கும் கதைகள்.</p>
-                <button onclick="toggleContent('story-content')" class="btn btn-green">KIDS STORIES</button>
+            <h2 class="section-heading">🌟 முக்கிய அம்சங்கள்</h2>
+            <div class="grid-menu">
+                <div class="menu-card search-item" onclick="switchPage('students')">
+                    <span class="icon">🎓</span>
+                    <h3>மாணவர்கள் பகுதி</h3>
+                    <p>தேர்வுகள் & குவிஸ்</p>
+                </div>
+                <div class="menu-card search-item" onclick="switchPage('kids')">
+                    <span class="icon">👶</span>
+                    <h3>Kids Zone</h3>
+                    <p>கதைகள் & தமிழ் கல்வி</p>
+                </div>
+                <div class="menu-card search-item" onclick="switchPage('services')">
+                    <span class="icon">💻</span>
+                    <h3>ஆன்லைன் சேவைகள்</h3>
+                    <p>டிஜிட்டல் சென்டர்</p>
+                </div>
+                <div class="menu-card search-item" onclick="switchPage('chat')">
+                    <span class="icon">🤖</span>
+                    <h3>AI சாட் அசிஸ்டண்ட்</h3>
+                    <p>உடனடி பதில்கள்</p>
+                </div>
+            </div>
+
+            <h2 class="section-heading">🎬 புதிய வீடியோக்கள் (Latest Videos)</h2>
+            <div class="detail-box media-box search-item">
+                <iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen></iframe>
+                <a href="https://youtube.com/@lifemediatamil" target="_blank" class="action-link-btn" style="background:#ff4757;">Our YouTube Channel ▶</a>
             </div>
         </div>
-        <div id="story-content" class="content-box">
-            <h4>📖 சிங்கமும் எலியும்:</h4>
-            <p>முயற்சியும், ஆபத்தில் செய்யும் உதவியும் ஒருவரை எப்போதும் காப்பாற்றும் என்ற நீதியை உணர்த்தும் கதை.</p>
+
+        <!-- PAGE 2: STUDENTS CORNER -->
+        <div id="page-students" class="app-page">
+            <h2 class="section-heading">🎓 போட்டித் தேர்வு வழிகாட்டி</h2>
+            <div class="detail-box search-item">
+                <h3>📚 TNPSC / UPSC / SSC தயாரிப்பு</h3>
+                <ul>
+                    <li><strong>TNPSC குரூப் தேர்வுகள்:</strong> பொதுத்தமிழ் இலக்கியம், இலக்கணம் மற்றும் பொது அறிவு முக்கிய குறிப்புகள்.</li>
+                    <li><strong>UPSC / சிவில் சர்வீஸ்:</strong> தேர்வுக்குத் தயாராவதற்கான அடிப்படை பாடப் புத்தகங்களின் பட்டியல்.</li>
+                    <li><strong>SSC CHSL:</strong> மத்திய அரசு வேலைவாய்ப்புத் தேர்வுகளுக்கான பாடத்திட்டங்கள்.</li>
+                </ul>
+            </div>
+
+            <div class="detail-box search-item">
+                <h3>✏️ பொது அறிவு வினாடி-வினா (Quiz)</h3>
+                <ul>
+                    <li><strong>கேள்வி 1:</strong> இந்தியாவின் தலைநகரம் எது? <br><span style="color:var(--success); font-weight:600;">பதில்: புது டெல்லி</span></li>
+                    <li><strong>கேள்வி 2:</strong> தமிழ்நாட்டின் மாநில மரம் எது? <br><span style="color:var(--success); font-weight:600;">பதில்: பனை மரம்</span></li>
+                </ul>
+            </div>
         </div>
-    </section>
 
-    <section id="videos" class="section search-item">
-        <h2 class="section-title">🎬 Latest Video</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/YrxXUztr61I" allowfullscreen></iframe>
+        <!-- PAGE 3: KIDS ZONE -->
+        <div id="page-kids" class="app-page">
+            <h2 class="section-heading">👶 குழந்தைகள் கற்றல் பகுதி</h2>
+            <div class="detail-box search-item">
+                <h3>🦁 பஞ்சதந்திர நீதிக்கதைகள்</h3>
+                <p><strong>சிங்கமும் எலியும்:</strong> எளிய வடிவில் சிறியவர்களும் புரிந்து கொள்ளும் படியான சிறப்பான தமிழ் நீதிக்கதைகள் தொகுப்பு.</p>
+            </div>
+            <div class="detail-box search-item">
+                <h3>🍎 தமிழ் உயிர் எழுத்துக்கள்</h3>
+                <p style="font-size: 22px; font-weight: bold; text-align: center; color: var(--accent); letter-spacing: 5px; margin: 10px 0;">
+                    அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ
+                </p>
+            </div>
         </div>
-    </section>
-</div>
 
-<footer>© 2026 Life Media Tamil | All Rights Reserved.</footer>
+        <!-- PAGE 4: SERVICES -->
+        <div id="page-services" class="app-page">
+            <h2 class="section-heading">💻 டிஜிட்டல் சென்டர் சேவைகள்</h2>
+            <div class="detail-box search-item">
+                <h3>🛠️ ஆன்லைன் விண்ணப்பங்கள் & பிரிண்டிங்</h3>
+                <ul>
+                    <li>✨ ஆதார் கார்டு மற்றும் ஸ்மார்ட் கார்டு திருத்தங்கள்</li>
+                    <li>✨ வருமானச் சான்றிதழ், சாதிச் சான்றிதழ் ஆன்லைன் பதிவு</li>
+                    <li>✨ கலர் ஜெராக்ஸ் மற்றும் உயர்தர லேமினேஷன் சேவைகள்</li>
+                    <li>✨ பான் கார்டு (PAN Card) புதியது மற்றும் திருத்தங்கள்</li>
+                </ul>
+                <a href="https://niyascomputers.blogspot.com" target="_blank" class="action-link-btn">Visit Our Blog Site</a>
+            </div>
+        </div>
 
-<button class="chat-btn" onclick="toggleChat()">💬</button>
+        <!-- PAGE 5: AI CHAT -->
+        <div id="page-chat" class="app-page">
+            <h2 class="section-heading">🤖 AI Chat Assistant</h2>
+            <div class="chat-container">
+                <div class="chat-messages" id="chatScreen">
+                    <div class="msg received">வணக்கம்! நான் லைஃப் மீடியா தமிழ் AI அசிஸ்டண்ட். உங்களுக்கு என்ன விபரம் வேண்டும்? (உதாரணம்: Youtube, Services, Exam)</div>
+                </div>
+                <div class="chat-input-bar">
+                    <input type="text" id="chatInputField" placeholder="கேள்விகளை இங்கே கேளுங்கள்..." onkeypress="handleChatEnter(event)">
+                    <button onclick="triggerChatResponse()">Send</button>
+                </div>
+            </div>
+        </div>
 
-<div class="chat-box" id="chatBox">
-    <div class="chat-header">
-        <span>🤖 AI Chat Assistant</span>
-        <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
     </div>
-    <div class="chat-body" id="chatBoxBody">
-        <div class="bot">👋 வணக்கம்! நான் உங்களுக்கு எவ்வாறு உதவ வேண்டும்?</div>
+
+    <!-- BOTTOM APP NAVIGATION -->
+    <div class="bottom-nav">
+        <div class="nav-item active" id="nav-home" onclick="switchPage('home')">
+            <span class="nav-icon">🏠</span><span>முகப்பு</span>
+        </div>
+        <div class="nav-item" id="nav-students" onclick="switchPage('students')">
+            <span class="nav-icon">🎓</span><span>மாணவர்கள்</span>
+        </div>
+        <div class="nav-item" id="nav-kids" onclick="switchPage('kids')">
+            <span class="nav-icon">👶</span><span>Kids</span>
+        </div>
+        <div class="nav-item" id="nav-services" onclick="switchPage('services')">
+            <span class="nav-icon">💻</span><span>சேவைகள்</span>
+        </div>
+        <div class="nav-item" id="nav-chat" onclick="switchPage('chat')">
+            <span class="nav-icon">🤖</span><span>AI சாட்</span>
+        </div>
     </div>
-    <div class="chat-input">
-        <input id="userInput" placeholder="Type message..." onkeypress="checkEnter(event)">
-        <button onclick="sendMsg()">Send</button>
-    </div>
-</div>
 
-<script>
-    /* JAVASCRIPT LOGIC */
-    function toggleMenu() { document.getElementById("navMenu").classList.toggle("show"); }
-    function toggleDark() { document.body.classList.toggle("dark"); }
-    function toggleChat() {
-        let box = document.getElementById("chatBox");
-        box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-    function checkEnter(e) { if (e.key === "Enter") sendMsg(); }
-
-    function sendMsg() {
-        let input = document.getElementById("userInput");
-        let chat = document.getElementById("chatBoxBody");
-        if (input.value.trim() === "") return;
-
-        chat.innerHTML += `<div class="user">${input.value}</div>`;
-        let txt = input.value;
-        input.value = "";
-        chat.scrollTop = chat.scrollHeight;
-
-        setTimeout(() => {
-            let reply = "🤖 தங்களின் கேள்விக்கு நன்றி! நான் இன்னும் புதிய விஷயங்களைக் கற்றுக் கொண்டு வருகிறேன்.";
-            let lowTxt = txt.toLowerCase();
-            if(lowTxt.includes("hi") || lowTxt.includes("hello") || lowTxt.includes("வணக்கம்")) reply = "👋 வணக்கம்! லைஃப் மீடியா தமிழ் உங்களை வரவேற்கிறது!";
-            if(lowTxt.includes("youtube") || lowTxt.includes("video")) reply = "▶ எங்கள் யூடியூப் சேனலைக் காண மேலே உள்ள 'YouTube' லிங்க்கை கிளிக் செய்யவும்.";
+    <script>
+        /* 1. APP NAVIGATION SYSTEM */
+        function switchPage(pageId) {
+            // Hide all pages
+            let pages = document.getElementsByClassName('app-page');
+            for(let p of pages) { p.classList.remove('active'); }
             
-            chat.innerHTML += `<div class="bot">${reply}</div>`;
-            chat.scrollTop = chat.scrollHeight;
-        }, 300);
-    }
+            // Deactivate all nav icons
+            let navs = document.getElementsByClassName('nav-item');
+            for(let n of navs) { n.classList.remove('active'); }
 
-    function toggleContent(id) {
-        let x = document.getElementById(id);
-        let currentDisplay = window.getComputedStyle(x).display;
-        let boxes = document.getElementsByClassName("content-box");
-        for (let i = 0; i < boxes.length; i++) { boxes[i].style.display = "none"; }
-        if (currentDisplay !== "block") { x.style.display = "block"; }
-    }
-
-    function searchWebsite() {
-        let input = document.getElementById('siteSearch').value.toLowerCase().trim();
-        let items = document.getElementsByClassName('search-item');
-        for (let i = 0; i < items.length; i++) {
-            let text = items[i].innerText.toLowerCase();
-            items[i].style.display = text.includes(input) ? "block" : "none";
+            // Show current page & active icon
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.getElementById('nav-' + pageId).classList.add('active');
+            
+            // Scroll to top nicely
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
-    }
-    function checkSearchEnter(e) { if (e.key === "Enter") handleMegaSearch(); }
-    function handleMegaSearch() {
-        let q = document.getElementById('siteSearch').value.trim();
-        if (q === "") return;
-        window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank');
-    }
-</script>
+
+        /* 2. THEME SWITCHER (DARK/LIGHT MODE) */
+        function toggleTheme() {
+            let body = document.body;
+            let btn = document.getElementById('themeBtn');
+            body.classList.toggle('dark');
+            if(body.classList.contains('dark')) {
+                btn.innerText = "☀️ Light";
+            } else {
+                btn.innerText = "🌙 Dark";
+            }
+        }
+
+        /* 3. DYNAMIC INTERNAL SEARCH */
+        function dynamicSearch() {
+            let val = document.getElementById('appSearch').value.toLowerCase().trim();
+            // Prevent interference if user typing a website URL
+            if(val.includes('www.') || val.includes('.com') || val.includes('http')) return;
+
+            let elements = document.getElementsByClassName('search-item');
+            for(let el of elements) {
+                let text = el.innerText.toLowerCase();
+                el.style.display = text.includes(val) ? "block" : "none";
+            }
+        }
+
+        function handleSearchEnter(e) { if(e.key === "Enter") triggerMegaSearch(); }
+        
+        function triggerMegaSearch() {
+            let query = document.getElementById('appSearch').value.trim();
+            if(query === "") return;
+
+            // Smart Link Handling: Open directly if it looks like a web address
+            if(query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
+                let url = query;
+                if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+                window.open(url, '_blank');
+            } else {
+                // Otherwise open clean Google Search results
+                window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+            }
+        }
+
+        /* 4. CHAT LOGIC WITH AUTOMATED INTELLIGENCE */
+        function handleChatEnter(e) { if(e.key === "Enter") triggerChatResponse(); }
+
+        function triggerChatResponse() {
+            let input = document.getElementById('chatInputField');
+            let screen = document.getElementById('chatScreen');
+            let query = input.value.trim();
+            if(query === "") return;
+
+            // User Message Appending
+            screen.innerHTML += `<div class="msg sent">${query}</div>`;
+            input.value = "";
+            screen.scrollTop = screen.scrollHeight;
+
+            // Dynamic Reply Generation
+            setTimeout(() => {
+                let reply = "🙂 உங்கள் கேள்வி எனக்குப் புரிந்தது! லைஃப் மீடியா தமிழின் அடுத்தடுத்த அப்டேட்களை கவனியுங்கள்.";
+                let text = query.toLowerCase();
+
+                if(text.includes('வணக்கம்') || text.includes('hi') || text.includes('hello')) {
+                    reply = "👋 வணக்கம்! உங்களுக்கு என்ன விபரங்கள் அல்லது ஆன்லைன் உதவிகள் தேவை?";
+                } else if(text.includes('youtube') || text.includes('வீடியோ') || text.includes('video')) {
+                    reply = "▶ எங்களது சிறந்த டெக்னாலஜி மற்றும் கல்வி சார்ந்த வீடியோக்களைக் காண 'Home' பக்கத்தில் உள்ள 'Our YouTube Channel' பட்டனை பயன்படுத்தலாம்.";
+                } else if(text.includes('exam') || text.includes('தேர்வு') || text.includes('tnpsc')) {
+                    reply = "🎓 போட்டித் தேர்வுகள் மற்றும் குவிஸ் பயிற்சிகளுக்கு எங்களது 'மாணவர்கள்' (Students Corner) பக்கத்திற்குச் செல்லவும்.";
+                } else if(text.includes('services') || text.includes('சேவை') || text.includes('ஆதார்')) {
+                    reply = "💻 ஸ்மார்ட் கார்டு, சான்றிதழ்கள், மற்றும் ஆன்லைன் பதிவுகளுக்கு எங்களது 'சேவைகள்' பகுதியை பார்க்கவும்.";
+                } else if(text.includes('நன்றி') || text.includes('thanks')) {
+                    reply = "💖 மிக்க மகிழ்ச்சி! எங்களது ஆப்பை தொடர்ந்து பயன்படுத்துங்கள்.";
+                }
+
+                screen.innerHTML += `<div class="msg received">${reply}</div>`;
+                screen.scrollTop = screen.scrollHeight;
+            }, 400);
+        }
+    </script>
 </body>
 </html>
