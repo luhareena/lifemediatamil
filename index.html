@@ -33,7 +33,7 @@
             background-color: var(--bg-light);
             color: var(--text-light);
             transition: background 0.3s, color 0.3s;
-            padding-bottom: 70px; /* Space for bottom nav */
+            padding-bottom: 80px; /* Enhanced space for bottom nav */
         }
 
         body.dark {
@@ -65,20 +65,23 @@
         }
 
         .header-actions button {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
-            padding: 8px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
             transition: 0.2s;
         }
+        .header-actions button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
 
         /* APP BANNER SLIDER (HERO) */
         .hero-banner {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/800/400?tech') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://picsum.photos/800/400?tech') no-repeat center center/cover;
             color: white;
             text-align: center;
             padding: 40px 20px;
@@ -103,7 +106,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             border: 2px solid var(--secondary);
         }
-        body.dark .search-wrapper { background: var(--bg-card-dark); }
+        body.dark .search-wrapper { background: var(--bg-card-dark); border-color: #3498db; }
 
         .search-wrapper input {
             flex: 1;
@@ -125,7 +128,9 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+            transition: 0.2s;
         }
+        .search-wrapper button:active { transform: scale(0.95); }
 
         /* MAIN CONTAINER & PAGES */
         .app-container {
@@ -157,13 +162,14 @@
         /* SECTION TILES & GRID */
         .section-heading {
             font-size: 18px;
-            margin: 15px 0 10px 0;
+            margin: 20px 0 12px 0;
             display: flex;
             align-items: center;
             gap: 8px;
             border-left: 4px solid var(--primary);
             padding-left: 8px;
         }
+        body.dark .section-heading { border-left-color: #3498db; }
 
         .grid-menu {
             display: grid;
@@ -202,7 +208,8 @@
         body.dark .detail-box h3 { color: #3498db; border-bottom-color: rgba(255,255,255,0.08); }
 
         .detail-box ul { list-style: none; }
-        .detail-box ul li { padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.05); font-size: 14px; display: flex; justify-content: space-between; }
+        .detail-box ul li { padding: 10px 0; border-bottom: 1px dashed rgba(0,0,0,0.05); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px; }
+        body.dark .detail-box ul li { border-bottom-color: rgba(255,255,255,0.05); }
         .detail-box ul li:last-child { border: none; }
 
         /* BUTTON DESIGN */
@@ -211,14 +218,16 @@
             background: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 12px 18px;
             border-radius: 8px;
             font-size: 14px;
             font-weight: bold;
             margin-top: 10px;
             text-align: center;
             width: 100%;
+            transition: background 0.2s;
         }
+        .action-link-btn:active { transform: scale(0.98); }
 
         /* VIDEO RESPONSIVE */
         .media-box iframe {
@@ -229,7 +238,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* BOTTOM NAVIGATION BAR (REAL APP LOOK) */
+        /* BOTTOM NAVIGATION BAR */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -238,7 +247,7 @@
             background: var(--bg-card-light);
             display: flex;
             justify-content: space-around;
-            padding: 10px 0;
+            padding: 12px 0;
             box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
             z-index: 1000;
         }
@@ -256,7 +265,7 @@
             flex: 1;
         }
 
-        .nav-item .nav-icon { font-size: 20px; margin-bottom: 2px; }
+        .nav-item .nav-icon { font-size: 22px; margin-bottom: 2px; }
         .nav-item.active { color: var(--primary); }
         body.dark .nav-item.active { color: #54a0ff; }
 
@@ -264,7 +273,7 @@
         .chat-container {
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 220px);
+            height: calc(100vh - 250px);
             background: var(--bg-card-light);
             border-radius: 15px;
             overflow: hidden;
@@ -278,8 +287,9 @@
             overflow-y: auto;
         }
         
-        .msg { margin-bottom: 12px; max-width: 80%; padding: 10px 14px; font-size: 14px; line-height: 1.4; }
+        .msg { margin-bottom: 12px; max-width: 85%; padding: 10px 14px; font-size: 14px; line-height: 1.4; }
         .msg.sent { background: var(--primary); color: white; border-radius: 15px 15px 0 15px; margin-left: auto; }
+        body.dark .msg.sent { background: #2a5298; }
         .msg.received { background: #e4e7eb; color: #2d3436; border-radius: 15px 15px 15px 0; }
         body.dark .msg.received { background: #475569; color: white; }
 
@@ -292,7 +302,7 @@
         .chat-input-bar input {
             flex: 1;
             border: 1px solid #ccc;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-radius: 20px;
             outline: none;
             font-size: 14px;
@@ -302,7 +312,7 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0 18px;
+            padding: 0 20px;
             margin-left: 8px;
             border-radius: 20px;
             font-weight: bold;
@@ -312,7 +322,6 @@
 </head>
 <body>
 
-    <!-- APP TOP BAR -->
     <header>
         <div class="brand">🚀 <span>Life Media Tamil</span></div>
         <div class="header-actions">
@@ -320,13 +329,11 @@
         </div>
     </header>
 
-    <!-- BANNER HERO -->
     <section class="hero-banner">
         <h1>Life Media Tamil</h1>
         <p>AI • Technology • Inventions • Knowledge</p>
     </section>
 
-    <!-- APP MEGA SEARCH -->
     <div class="search-box-container">
         <div class="search-wrapper">
             <input type="text" id="appSearch" onkeyup="dynamicSearch()" onkeypress="handleSearchEnter(event)" placeholder="ஆப் முழுவதும் தேட அல்லது Google தேடலுக்கு...">
@@ -334,10 +341,8 @@
         </div>
     </div>
 
-    <!-- MAIN PAGES AREA -->
     <div class="app-container">
 
-        <!-- PAGE 1: HOME -->
         <div id="page-home" class="app-page active">
             <div class="ticker-wrap search-item">
                 🔥 <span>முக்கிய அறிவிப்பு: டிஜிட்டல் சான்றிதழ்கள், ஆன்லைன் பதிவுகள் மற்றும் ஸ்மார்ட் கார்டு சேவைகளுக்கு நமது சென்டரை அணுகலாம்!</span>
@@ -369,12 +374,11 @@
 
             <h2 class="section-heading">🎬 புதிய வீடியோக்கள் (Latest Videos)</h2>
             <div class="detail-box media-box search-item">
-                <iframe src="https://www.youtube.com/channel/UCwljtnw-NTLc_i2_BDriRSw" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=lifemediatamil" allowfullscreen></iframe>
                 <a href="https://youtube.com/@lifemediatamil" target="_blank" class="action-link-btn" style="background:#ff4757;">Our YouTube Channel ▶</a>
             </div>
         </div>
 
-        <!-- PAGE 2: STUDENTS CORNER -->
         <div id="page-students" class="app-page">
             <h2 class="section-heading">🎓 போட்டித் தேர்வு வழிகாட்டி</h2>
             <div class="detail-box search-item">
@@ -395,7 +399,6 @@
             </div>
         </div>
 
-        <!-- PAGE 3: KIDS ZONE -->
         <div id="page-kids" class="app-page">
             <h2 class="section-heading">👶 குழந்தைகள் கற்றல் பகுதி</h2>
             <div class="detail-box search-item">
@@ -410,22 +413,20 @@
             </div>
         </div>
 
-        <!-- PAGE 4: SERVICES -->
         <div id="page-services" class="app-page">
             <h2 class="section-heading">💻 டிஜிட்டல் சென்டர் சேவைகள்</h2>
             <div class="detail-box search-item">
                 <h3>🛠️ ஆன்லைன் விண்ணப்பங்கள் & பிரிண்டிங்</h3>
                 <ul>
-                    <li>✨ ஆதார் கார்டு மற்றும் ஸ்மார்ட் கார்டு திருத்தங்கள்</li>
-                    <li>✨ வருமானச் சான்றிதழ், சாதிச் சான்றிதழ் ஆன்லைன் பதிவு</li>
+                    <li>✨ ஸ்மார்ட் கார்டு திருத்தங்கள் மற்றும் புதிய பதிவுகள்</li>
+                    <li>✨ வருமானச் சான்றிதழ், சாதிச் சான்றிதழ் ஆன்லைன் சேவைகள்</li>
                     <li>✨ கலர் ஜெராக்ஸ் மற்றும் உயர்தர லேமினேஷன் சேவைகள்</li>
-                    <li>✨ பான் கார்டு (PAN Card) புதியது மற்றும் திருத்தங்கள்</li>
+                    <li>✨ புதிய பான் கார்டு (PAN Card) விண்ணப்பங்கள்</li>
                 </ul>
                 <a href="https://niyascomputers.blogspot.com" target="_blank" class="action-link-btn">Visit Our Blog Site</a>
             </div>
         </div>
 
-        <!-- PAGE 5: AI CHAT -->
         <div id="page-chat" class="app-page">
             <h2 class="section-heading">🤖 AI Chat Assistant</h2>
             <div class="chat-container">
@@ -441,7 +442,6 @@
 
     </div>
 
-    <!-- BOTTOM APP NAVIGATION -->
     <div class="bottom-nav">
         <div class="nav-item active" id="nav-home" onclick="switchPage('home')">
             <span class="nav-icon">🏠</span><span>முகப்பு</span>
@@ -463,19 +463,15 @@
     <script>
         /* 1. APP NAVIGATION SYSTEM */
         function switchPage(pageId) {
-            // Hide all pages
             let pages = document.getElementsByClassName('app-page');
             for(let p of pages) { p.classList.remove('active'); }
             
-            // Deactivate all nav icons
             let navs = document.getElementsByClassName('nav-item');
             for(let n of navs) { n.classList.remove('active'); }
 
-            // Show current page & active icon
             document.getElementById('page-' + pageId).classList.add('active');
             document.getElementById('nav-' + pageId).classList.add('active');
             
-            // Scroll to top nicely
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
@@ -494,7 +490,6 @@
         /* 3. DYNAMIC INTERNAL SEARCH */
         function dynamicSearch() {
             let val = document.getElementById('appSearch').value.toLowerCase().trim();
-            // Prevent interference if user typing a website URL
             if(val.includes('www.') || val.includes('.com') || val.includes('http')) return;
 
             let elements = document.getElementsByClassName('search-item');
@@ -510,13 +505,11 @@
             let query = document.getElementById('appSearch').value.trim();
             if(query === "") return;
 
-            // Smart Link Handling: Open directly if it looks like a web address
             if(query.toLowerCase().includes('www.') || query.toLowerCase().includes('.com') || query.toLowerCase().includes('.in') || query.startsWith('http')) {
                 let url = query;
                 if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
                 window.open(url, '_blank');
             } else {
-                // Otherwise open clean Google Search results
                 window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
             }
         }
@@ -530,12 +523,10 @@
             let query = input.value.trim();
             if(query === "") return;
 
-            // User Message Appending
             screen.innerHTML += `<div class="msg sent">${query}</div>`;
             input.value = "";
             screen.scrollTop = screen.scrollHeight;
 
-            // Dynamic Reply Generation
             setTimeout(() => {
                 let reply = "🙂 உங்கள் கேள்வி எனக்குப் புரிந்தது! லைஃப் மீடியா தமிழின் அடுத்தடுத்த அப்டேட்களை கவனியுங்கள்.";
                 let text = query.toLowerCase();
@@ -544,10 +535,10 @@
                     reply = "👋 வணக்கம்! உங்களுக்கு என்ன விபரங்கள் அல்லது ஆன்லைன் உதவிகள் தேவை?";
                 } else if(text.includes('youtube') || text.includes('வீடியோ') || text.includes('video')) {
                     reply = "▶ எங்களது சிறந்த டெக்னாலஜி மற்றும் கல்வி சார்ந்த வீடியோக்களைக் காண 'Home' பக்கத்தில் உள்ள 'Our YouTube Channel' பட்டனை பயன்படுத்தலாம்.";
-                } else if(text.includes('exam') || text.includes('தேர்வு') || text.includes('tnpsc')) {
-                    reply = "🎓 போட்டித் தேர்வுகள் மற்றும் குவிஸ் பயிற்சிகளுக்கு எங்களது 'மாணவர்கள்' (Students Corner) பக்கத்திற்குச் செல்லவும்.";
-                } else if(text.includes('services') || text.includes('சேவை') || text.includes('ஆதார்')) {
-                    reply = "💻 ஸ்மார்ட் கார்டு, சான்றிதழ்கள், மற்றும் ஆன்லைன் பதிவுகளுக்கு எங்களது 'சேவைகள்' பகுதியை பார்க்கவும்.";
+                } else if(text.includes('exam') || text.includes('தேர்வு') || text.includes('tnpsc') || text.includes('upsc')) {
+                    reply = "🎓 போட்டித் தேர்வுகள், பாடத்திட்டங்கள் மற்றும் குவிஸ் பயிற்சிகளுக்கு எங்களது 'மாணவர்கள்' (Students Corner) பக்கத்திற்குச் செல்லவும்.";
+                } else if(text.includes('services') || text.includes('சேவை') || text.includes('கார்டு') || text.includes('பிரிண்ட்')) {
+                    reply = "💻 ஸ்மார்ட் கார்டு திருத்தங்கள், சான்றிதழ்கள், கலர் பிரிண்டிங் மற்றும் ஆன்லைன் பதிவுகளுக்கு எங்களது 'சேவைகள்' பகுதியை பார்க்கவும்.";
                 } else if(text.includes('நன்றி') || text.includes('thanks')) {
                     reply = "💖 மிக்க மகிழ்ச்சி! எங்களது ஆப்பை தொடர்ந்து பயன்படுத்துங்கள்.";
                 }
