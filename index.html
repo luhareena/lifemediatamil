@@ -394,7 +394,61 @@
                     <li><strong>UPSC / சிவில் சர்வீஸ்:</strong> சிவில் சர்வீஸ் தேர்வுக்குத் தயாராவதற்கான அடிப்படை பாடப் புத்தகங்களின் பட்டியல்.</li>
                     <li><strong>SSC CHSL:</strong> மத்திய அரசு வேலைவாய்ப்புத் தேர்வுகளுக்கான முக்கிய பாடத்திட்டங்கள்.</li>
                 </ul>
-            </div>
+            </div> <!-- மாணவர்கள் பக்கத்தில் (page-students) உள்ள பழைய குவிஸ் பாக்ஸிற்குப் பதில் இதை வைக்கலாம் -->
+<div class="detail-box search-item">
+    <h3>✏️ பொது அறிவு வினாடி-வினா (Dynamic Quiz)</h3>
+    <div id="quiz-area">
+        <p id="quiz-question" style="font-weight: 600; margin-bottom: 10px;"></p>
+        <div id="quiz-options"></div>
+        <p id="quiz-feedback" style="margin-top:12px; font-weight:bold;"></p>
+        <button onclick="nextQuestion()" class="action-link-btn" style="background:var(--secondary); display:none;" id="next-btn">அடுத்த கேள்வி ➡️</button>
+    </div>
+</div>
+
+<script>
+// கேள்விகளின் தொகுப்பு
+const questions = [
+    { q: "இந்தியாவின் விண்வெளி ஆராய்ச்சி நிறுவனம் எது?", options: ["ISRO", "NASA", "DRDO"], ans: 0 },
+    { q: "தமிழ்நாட்டின் மாநில மரம் எது?", options: ["ஆலமரம்", "பனை மரம்", "தென்னை மரம்"], ans: 1 },
+    { q: "இந்தியாவின் தலைநகரம் எது?", options: ["மும்பை", "சென்னை", "புது டெல்லி"], ans: 2 }
+];
+
+let currentQ = 0;
+
+function loadQuestion() {
+    let qData = questions[currentQ];
+    document.getElementById("quiz-question").innerText = `கேள்வி ${currentQ + 1}: ${qData.q}`;
+    let optionsHtml = "";
+    qData.options.forEach((opt, index) => {
+        optionsHtml += `<button class="quiz-option" onclick="checkAnswerNew(${index})">${opt}</button>`;
+    });
+    document.getElementById("quiz-options").innerHTML = optionsHtml;
+    document.getElementById("quiz-feedback").innerText = "";
+    document.getElementById("next-btn").style.display = "none";
+}
+
+function checkAnswerNew(selectedIndex) {
+    let qData = questions[currentQ];
+    let feedback = document.getElementById("quiz-feedback");
+    if(selectedIndex === qData.ans) {
+        feedback.innerText = "🎉 சரியான பதில்!";
+        feedback.style.color = "var(--success)";
+        document.getElementById("next-btn").style.display = "block";
+    } else {
+        feedback.innerText = "❌ தவறான பதில்! மீண்டும் முயற்சிக்கவும்.";
+        feedback.style.color = "var(--accent)";
+    }
+}
+
+function nextQuestion() {
+    currentQ = (currentQ + 1) % questions.length;
+    loadQuestion();
+}
+
+// ஆப் தொடங்கும்போது முதல் கேள்வியை ஏற்ற
+document.addEventListener("DOMContentLoaded", loadQuestion);
+</script>
+
 
             <!-- INTERACTIVE QUIZ SECTION -->
             <div class="detail-box search-item">
