@@ -138,6 +138,7 @@ function nextQuestion() {
 /* 6. ஏஐ சாட் அசிஸ்டண்ட் (SMART AI CHAT ASSISTANT) */
 function handleChatEnter(e) { if(e.key === "Enter") triggerChatResponse(); }
 
+
 function triggerChatResponse() {
     let input = document.getElementById('chatInputField');
     let screen = document.getElementById('chatScreen');
@@ -151,14 +152,17 @@ function triggerChatResponse() {
     input.value = "";
     screen.scrollTop = screen.scrollHeight;
 
-    // ஏஐ பதிலளிக்கும் சிறிய காலதாமதம் (Simulation Delay)
+    // ஏஐ பதிலளிக்கும் சிறிய காலதாமதம்
     setTimeout(() => {
         let reply = "🙂 உங்கள் கேள்வி எனக்குப் புரிந்தது! லைஃப் மீடியா தமிழின் புதிய அப்டேட்களை கவனியுங்கள்.";
         let text = query.toLowerCase().trim();
 
-        // ஸ்மார்ட் பதில்கள் (Keywords Match)
+        // 🌟 ஸ்மார்ட் பதில்கள் (Keywords Match)
         if(text.includes('நீ யார்') || text.includes('யார் நீ') || text.includes('பெயர் என்ன') || text.includes('who are you') || text.includes('உன் பெயர்') || text.includes('name')) {
             reply = "🤖 நான் **Life Media Tamil** ஆப்பின் அதிகாரப்பூர்வ ஏஐ சாட் அசிஸ்டண்ட்! உங்களுக்குத் தேவையான கல்வி, தேர்வுகள் மற்றும் ஆன்லைன் டிஜிட்டல் சென்டர் சேவைகளுக்கான வழிகாட்டல்களை வழங்குவதே என் வேலை.";
+        }
+        else if(text.includes('where are you') || text.includes('எங்கே') || text.includes('இடம்') || text.includes('address') || text.includes('location') || text.includes('முகவரி')) {
+            reply = "📍 நமது **Niyas Digital Center & Building Constructions** நிறுவனம் தென்காசி மாவட்டம், கடையநல்லூர் பகுதியில் (Then Vadals, Thakwapalli அருகில்) அமைந்துள்ளது!";
         }
         else if(text.includes('நியாஸ்') || text.includes('niyas') || text.includes('முதலாளி') || text.includes('owner')) {
             reply = "🚀 நியாஸ் (Niyas) அவர்கள் தான் நமது **Life Media Tamil** மற்றும் **Niyas Digital Center & Building Constructions** நிறுவனத்தின் நிறுவனர் ஆவார்!";
